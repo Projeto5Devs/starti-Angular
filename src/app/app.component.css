@@ -56,22 +56,7 @@
     transition: all 0.5s;
     z-index: 997;
     padding: 20px 0;
+    background: rgb(38, 2, 44);
   }
-
-  #header.header-scrolled {
-  background: rgb(38, 2, 44);
-  padding: 12px 0;
-}
-
-@media screen and (max-width: 991px){
-
-    #header {
-        background: rgb(38, 2, 44);
-        padding: 12px 0;
-      }
-
-
-}
-
 
 

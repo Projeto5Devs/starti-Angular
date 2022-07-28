@@ -1,4 +1,4 @@
- /*--------------------------------------------------------------
+/*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
@@ -10,7 +10,7 @@
 
 #hero .container,
 #hero .container-fluid {
-padding-top: 150px;
+padding-top: 80px;
 margin-bottom: 68px;
 }
 
@@ -655,3 +655,5 @@ display: inline-block;
 .faq .faq-list a.collapsed .icon-close {
 display: none;
 }
+
+
