@@ -1,0 +1,105 @@
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+
+.foot-icons {
+  margin-top:60px;
+}
+
+.foot-icons .footer-social-links li {
+  padding: 0 10px;
+  text-align: center;
+}
+
+.foot-icons .footer-social-links a {
+  color: #fff;
+  display: block;
+  font-size: 18px;
+  width: 60px;
+  line-height: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -moz-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  -ms-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+  border-radius: 50%;
+}
+
+.foot-icon-bg-1{
+  background: #3b5999;
+}
+.foot-icon-bg-2{
+  background: #1da1f3;
+}
+.foot-icon-bg-3{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8938ae+0,c13181+100 */
+  background: #8938ae; /* Old browsers */
+  background: -webkit-linear-gradient(right, #8938ae 0%, #c13181 100%);
+  background: -o-linear-gradient(right, #8938ae 0%, #c13181 100%);
+  background: linear-gradient(to right, #8938ae 0%, #c13181 100%);
+  font-size: 120px;
+}
+
+.foot-icons .footer-social-links a:hover {
+  /*color: #00d8d5;*/
+  color: #2cdbb5;
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.foot-icons p{
+  color:#aaa;
+  font-size:16px;
+  margin-top:28px;
+  text-align: center;
+}
+
+.foot-icons p a{
+  color:#00d8ff;
+  font-size:16px;
+  margin-top:28px;
+}
+
+.foot-icons p a:hover{
+  color:#00ff91;
+  transition: 1s;
+}
+
+/*--------------------------------------------------------------
+# Botão de volta para o início
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 20px;
+  bottom: 15px;
+  z-index: 996;
+  background: #5846f9;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+.back-to-top{
+    display: block;
+}
+
+.back-to-top > i {
+  color: #fff;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #7b27d8;
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
