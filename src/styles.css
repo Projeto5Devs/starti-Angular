@@ -1,7 +1,6 @@
-*, *::before, *::after{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+html, body{
+  height: 100vh;
 }
 
 body {
@@ -10,15 +9,14 @@ body {
 }
 
 ul{
-padding: 0;
+  padding: 0;
   margin: 0;
   list-style: none;
 }
 
 ul li {
-list-style: none;
+  list-style: none;
 }
-
 
 
 h1,
@@ -27,7 +25,7 @@ h3,
 h4,
 h5,
 h6 {
-font-family: "Poppins", sans-serif!important;
+  font-family: "Poppins", sans-serif!important;
 }
 
 a{

@@ -428,23 +428,6 @@ position: relative;
 z-index: 1;
 }
 
-.testimonials .swiper-pagination {
-margin-top: 20px;
-position: relative;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet {
-width: 12px;
-height: 12px;
-background-color: #fff;
-opacity: 1;
-border: 1px solid #16df7e;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet-active {
-background-color: #ffdd00;
-}
-
 /*--------------------------------------------------------------
 # Sobre nós
 --------------------------------------------------------------*/

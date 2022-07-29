@@ -1,3 +1,16 @@
+
+.container{
+  width: 100vw;
+  background-color: white;
+  border-radius: 10px;
+  padding: 50px;
+  min-width: 300px;
+}
+
+.row{
+  width: 100%;
+}
+
 .form-signin {
   max-width: 350px;
   padding: 10px 15px;
@@ -30,4 +43,27 @@ button{
 button:hover{
   background-color:  #730bcd;
   color: #fff;
+}
+
+
+@media (max-width: 991px) {
+
+  .col-lg-6{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  img{
+    width: 80%;
+    justify-content: center;
+
+  }
+
+  .login{
+    min-width: 300px;
+    margin-top: 50px;
+  }
+
 }
