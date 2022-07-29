@@ -1,3 +1,13 @@
+a {
+  color: #f7f7ff;
+  text-decoration: none;
+}
+
+button:hover a{
+  color: rgb(38, 2, 44);
+  text-decoration: none;
+}
+
 .navbar{
   background: rgb(38, 2, 44);
   width: 100%;
@@ -34,7 +44,7 @@ color:#fff;
 }
 
 .nav-link.getstarted:hover{
-color: rgb(1, 27, 159);
+  color: rgb(38, 2, 44);
 background-color: #fff;
 }
 

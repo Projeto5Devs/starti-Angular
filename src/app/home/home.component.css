@@ -3,7 +3,6 @@
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
   background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%), url("../../assets/img/hero-bg.jpg") center center no-repeat;
   background-size: cover;
 }
@@ -598,9 +597,6 @@ background-size: cover;
 # Perguntas Frequentes
 --------------------------------------------------------------*/
 
-.faq {
-margin-bottom: 50px;
-}
 
 .faq .faq-list {
 padding: 0;

@@ -1,6 +1,10 @@
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+footer{
+  background:#f9f9f9;
+  width: 100%;
+}
 
 .foot-icons {
   margin-top:60px;
@@ -84,6 +88,7 @@
   padding: 10px 15px;
   border-radius: 4px;
   transition: all 0.4s;
+  color:#fff;
 }
 .back-to-top{
     display: block;
@@ -103,3 +108,6 @@
   visibility: visible;
   opacity: 1;
 }
+
+
+

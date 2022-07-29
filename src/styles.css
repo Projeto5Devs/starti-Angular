@@ -1,5 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
-
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Open Sans", sans-serif!important;
@@ -16,20 +19,7 @@ ul li {
 list-style: none;
 }
 
-footer{
-  background:#f9f9f9;
 
-}
-
-a {
-  color: #f7f7ff;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #8577fb;
-  text-decoration: none;
-}
 
 h1,
 h2,
@@ -38,4 +28,8 @@ h4,
 h5,
 h6 {
 font-family: "Poppins", sans-serif!important;
+}
+
+a{
+  text-decoration: none;
 }
