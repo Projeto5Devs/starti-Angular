@@ -1,40 +1,58 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center">
     <div class="col-lg-6">
-      <a href ="#"><img class="img-fluid" src="../assets/img/login.svg" /></a>
+      <a href="#"><img class="img-fluid" src="../assets/img/login.svg" /></a>
     </div>
     <div class="login col-lg-6 mb-5">
       <div class="form-signin w-100 m-auto">
-        <form>
+        <form (ngSubmit)="login()" #loginForm="ngForm">
           <h1 class="h3 mb-3 fw-normal text-center">Já é nosso parceiro?</h1>
           <p class="text-center">Faça o seu login</p>
-
           <div class="form-floating">
             <input
-              type="email"
               class="form-control"
               id="floatingInput"
               placeholder="name@example.com"
+              [(ngModel)]="usuario"
+              name="usuario"
+              #campoUsuario = "ngModel"
+              required
             />
             <label for="floatingInput">Digite o nome de Usuário</label>
           </div>
+
+          <app-mensagem
+              *ngIf="campoUsuario.invalid && campoUsuario.touched"
+              mensagem="Usuário obrigatório"
+            ></app-mensagem>
+
           <div class="form-floating">
             <input
               type="password"
               class="form-control"
               id="floatingPassword"
               placeholder="Password"
+              [(ngModel)]="senha"
+              #campoSenha = "ngModel"
+              name="senha"
+              required
             />
             <label for="floatingPassword">Password</label>
           </div>
+
+          <app-mensagem
+              *ngIf="campoSenha.invalid && campoSenha.touched"
+              mensagem="Senha obrigatória"
+            ></app-mensagem>
 
           <div class="checkbox mb-3">
             <label>
               <input type="checkbox" value="remember-me" /> Remember me
             </label>
           </div>
-          <button class="w-100 btn btn-lg" type="submit">Login</button>
+          <button class="w-100 btn btn-lg" type="submit" [disabled] = "loginForm.invalid">Log in</button>
         </form>
+        <p>Não é um usuário? <a [routerLink]="['/signin']">Se cadastre.</a></p>
       </div>
     </div>
   </div>

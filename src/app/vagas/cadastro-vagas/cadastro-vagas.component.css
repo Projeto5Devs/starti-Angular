@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+}
+
+.button{
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+.cancel{
+  background-color:  #fff;
+  border: 1px solid rgb(174, 174, 174);
+}
+
+.cancel:hover{
+  color:gray
+}
+
+.confirmar{
+  background-color:  #7e00ec;
+  color: #fff;
+}
+
+.confirmar:hover{
+  background-color: #942173;
+  transition: 1s;
+}
+
+
+.formulario{
+  padding: 40px 50px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 992px) {
+  .rounded-lg-3 { border-radius: .3rem; }
+}

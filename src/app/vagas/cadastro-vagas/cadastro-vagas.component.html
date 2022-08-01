@@ -1,0 +1,106 @@
+<div class="px-4 py-5 my-5 text-center">
+  <i class="fab fa-github fa-4x" aria-hidden="true"></i>
+  <h1 class="display-5 fw-bold">Cadastro de vagas</h1>
+</div>
+
+<div class="row d-flex justify-content-center align-items-center mt-5 mb-5">
+  <form
+    class="col-lg-6 formulario form"
+    [(formGroup)]="novaVagaForm"
+    (submit)="cadastrar()"
+  >
+    <label for="cargo" class="mb-2">Cargo </label>
+    <input
+      type="text"
+      id="cargo"
+      class="form-control"
+      formControlName="cargo"
+      placeholder="ex: Desenvolvedor Full Stack Java"
+    />
+    <app-mensagem
+      *ngIf="
+        novaVagaForm.get('cargo')?.errors?.required &&
+        novaVagaForm.get('cargo')?.touched
+      "
+      mensagem="Campo Obrigatório"
+    ></app-mensagem>
+    <label for="descricao" class="mb-2 mt-2">Descrição da Vaga </label>
+    <textarea
+      class="form-control"
+      id="descricao"
+      formControlName="descricao"
+      rows="3"
+    ></textarea>
+    <app-mensagem
+      *ngIf="
+        novaVagaForm.get('descricao')?.errors?.required &&
+        novaVagaForm.get('descricao')?.touched
+      "
+      mensagem="Campo Obrigatório"
+    ></app-mensagem>
+    <fieldset>
+      <legend class="col-form-label">Tipo</legend>
+      <div class="form-check">
+        <input
+          type="radio"
+          class="form-check-input"
+          name="radioTipo"
+          id="radioEstagio"
+          value="opcaoEstagio"
+        />
+        <label for="radioEstagio">Estágio</label>
+      </div>
+      <div class="form-check">
+        <input
+          type="radio"
+          class="form-check-input"
+          name="radioTipo"
+          id="radioJunior"
+          value="opcaoJunior"
+        />
+        <label for="radioJunior">Júnior</label>
+      </div>
+    </fieldset>
+    <select
+      formControlName="modalidade"
+      name=""
+      id=""
+      class="form-select mb-2 mt-3"
+    >
+      <option selected>Modalidade</option>
+      <option value="remoto">Remoto</option>
+      <option value="hibrido">Híbrido</option>
+      <option value="presencial">Presencial</option>
+    </select>
+    <label for="salario" class="mb-2 mt-2">Salário</label>
+    <div class="input-group">
+      <div class="input-group-text">$</div>
+      <input
+        type="number"
+        formControlName="salario"
+        class="form-control"
+        name=""
+        id="salario"
+      />
+    </div>
+    <label for="prazo" class="mb-2 mt-3">Validade da Vaga</label>
+    <input
+      type="date"
+      formControlName="prazo"
+      name=""
+      id="prazo"
+      class="form-control"
+    />
+    <app-mensagem
+      *ngIf="
+        novaVagaForm.get('prazo')?.errors?.required &&
+        novaVagaForm.get('prazo')?.touched
+      "
+      mensagem="Campo Obrigatório"
+    ></app-mensagem>
+    <div class="mt-4 mb-4 d-flex justify-content-end">
+      <button type="reset" class="button cancel">Cancelar</button>
+      <button type="submit" class="button confirmar">Cadastrar</button>
+    </div>
+  </form>
+</div>

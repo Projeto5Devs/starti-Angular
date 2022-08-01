@@ -5,6 +5,7 @@
   border-radius: 10px;
   padding: 50px;
   min-width: 300px;
+  height: 100vh;
 }
 
 .row{
@@ -14,7 +15,6 @@
 .form-signin {
   max-width: 350px;
   padding: 10px 15px;
-
   border-bottom: 3px solid #8c0bcd;
 }
 
@@ -35,24 +35,25 @@
 }
 
 button{
-  border: none;
-  background-color:  #631ddc;
-  color: #fff;
+  border:none;
+  background-color:  #631ddc !important;
+  color: #fff !important;
 }
 
 button:hover{
-  background-color:  #730bcd;
+  background-color:  #730bcd !important;
   color: #fff;
 }
 
 
 @media (max-width: 991px) {
 
+
   .col-lg-6{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+
   }
 
   img{

@@ -1,6 +1,7 @@
 
 html, body{
   height: 100vh;
+  width: 100%;
 }
 
 body {
@@ -31,3 +32,38 @@ h6 {
 a{
   text-decoration: none;
 }
+
+/*--------------------------------------------------------------
+# Sections
+--------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+  position: relative;
+  }
+
+  .section-title {
+  text-align: center;
+  padding-bottom: 30px;
+  position: relative;
+  }
+
+  .section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  }
+
+  .section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #5846f9;
+  bottom: 0;
+  left: calc(50% - 25px);
+  }
