@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CadastroVagas } from './cadastro-vagas';
 
+
 @Injectable({
   providedIn: 'root'
 })

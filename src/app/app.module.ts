@@ -11,8 +11,10 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CepService } from './cadastro/cadastro-candidato/services/cep-service.service';
+
 
 
 @NgModule({
@@ -26,12 +28,13 @@ import { HttpClientModule } from '@angular/common/http';
     FontAwesomeModule,
     BrowserAnimationsModule,
     TemplateModule,
-    FormsModule,
     HttpClientModule,
     MensagemModule,
-    CadastroModule
+    CadastroModule,
+    FormsModule,                               // <========== Add this line!
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CepService, FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

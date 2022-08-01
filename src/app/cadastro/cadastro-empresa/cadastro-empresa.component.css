@@ -1,0 +1,49 @@
+form {
+  margin-top: 50px;
+  margin-left:15%;
+  margin-right:15%;
+}
+
+hr {
+  margin-top: 30px;
+  margin-bottom: 25px;
+  height: 2px;
+}
+
+h4 {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+input, label {
+  font-family: "Poppins", sans-serif;
+}
+
+.btn-submit {
+  margin: 3%;
+  outline: none;
+  line-height: 10px;
+  padding: 17px 40px;
+  background: #4154f1;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  border-color: #4154f1;
+  transition: 0.5s;
+}
+
+.btn-submit:hover {
+  background: #1526c0;
+}
+
+.btn-submit span {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-right: 5px;
+}
+
+#alerta-cnpj{
+  color: red;
+  font-size: 15px;
+}

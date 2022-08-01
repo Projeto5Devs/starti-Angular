@@ -1,1 +1,146 @@
-<p>cadastro-empresa works!</p>
+<div class="px-4 py-1 my-5 text-center">
+  <h1 class="display-5 fw-bold">Cadastro de empresa</h1>
+</div>
+
+<form class="form-floating" #f="ngForm">
+
+  <div class="row g-3">
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="nomefantasia" placeholder="Nome Fantasia">
+        <label for="nomefantasia" required>Nome Fantasia</label>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="razaosocial" placeholder="Razão Social">
+        <label for="razaosocial">Razão Social</label>
+      </div>
+    </div>
+  </div>
+  <div class="row g-3">
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="cnpj" placeholder="CNPJ" maxlength="18" (blur)="validacaoCNPJ($event.target.value)">
+        <label for="cnpj">CNPJ</label>
+        <div>
+          <small class="form-text text-muted">Digite no formato: XX. XXX. XXX/0001-XX</small>
+          <br>
+          <small id="alerta-cnpj" style="display: none;">CNPJ inválido!</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="segmento" placeholder="Segmento">
+        <label for="segmento">Segmento</label>
+      </div>
+    </div>
+  </div>
+
+
+  <hr>
+  <h4>Contato</h4>
+
+  <div class="form-floating mb-3">
+    <input type="tel" class="form-control" id="telefone" placeholder="Telefone">
+    <label for="telefone">Telefone</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+    <label for="email">Email</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="url" class="form-control" id="website" placeholder="Website">
+    <label for="website">Website</label>
+  </div>
+
+
+  <hr>
+  <h4>Endereço</h4>
+
+  <div class="row g-3">
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="cep" placeholder="CEP" maxlength="9"
+        (blur)="buscarCep($event.target.value,f)" name="cep" ngModel #cep="ngModel"
+        >
+        <label for="cep">CEP</label>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="localidade" placeholder="Cidade"
+        name="localidade" ngModel #localidade="ngModel" disabled>
+        <label for="localidade">Cidade</label>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2"
+        name="uf" ngModel #uf="ngModel" disabled>
+        <label for="uf">UF</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="bairro" placeholder="Bairro"
+        name="bairro" ngModel #bairro="ngModel" disabled>
+        <label for="bairro">Bairro</label>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="logradouro" placeholder="Logradouro"
+        name="logradouro" ngModel #logradouro="ngModel" disabled>
+        <label for="logradouro">Logradouro</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="numero" placeholder="Número">
+        <label for="numero">Número</label>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="complemento" placeholder="Complemento">
+        <label for="complemento">Complemento</label>
+      </div>
+    </div>
+  </div>
+
+
+  <hr>
+  <h4>Login</h4>
+
+  <div class="row g-3">
+    <div class="col-md">
+      <div class="input-group mb-3">
+        <span class="input-group-text">@</span>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="username" placeholder="Username">
+          <label for="username">Username</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="form-floating">
+        <input type="password" class="form-control" id="senha" placeholder="Senha">
+        <label for="senha">Senha</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn-submit"><span>Cadastrar</span></button>
+  </div>
+</form>
