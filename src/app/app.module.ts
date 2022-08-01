@@ -1,8 +1,10 @@
+import { CadastroModule } from './cadastro/cadastro.module';
 import { MensagemModule } from './componentes/mensagem/mensagem.module';
 
 import { TemplateModule } from './template/template.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     TemplateModule,
     FormsModule,
     HttpClientModule,
-    MensagemModule
+    MensagemModule,
+    CadastroModule
   ],
   providers: [],
   bootstrap: [AppComponent]
