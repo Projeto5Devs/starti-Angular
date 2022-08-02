@@ -2,12 +2,17 @@
   <h1 class="display-5 fw-bold">Cadastro de candidato</h1>
 </div>
 
-<form class="form-floating" #f="ngForm">
+<form class="form-floating" #f="ngForm" [(formGroup)]="novoCandidatoForm">
 
   <div class="row g-3">
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="nome" placeholder="Nome">
+        <input
+        type="text"
+        class="form-control"
+        id="nome"
+        placeholder="Nome"
+        formControlName="nome">
         <label for="nome" required>Nome</label>
       </div>
     </div>
@@ -21,7 +26,8 @@
   <div class="row g-3">
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="cpf" placeholder="CPF" maxlength="14" (blur)="validacaoCPF($event.target.value)">
+        <input type="text" class="form-control" id="cpf" placeholder="CPF" maxlength="14"
+          (blur)="validacaoCPF($event.target.value)">
         <label for="cpf">CPF</label>
         <div>
           <small class="form-text text-muted">Digite no formato: 111.111.111-11</small>
@@ -65,22 +71,21 @@
     <div class="col-md">
       <div class="form-floating mb-3">
         <input type="text" class="form-control" id="cep" placeholder="CEP" maxlength="9"
-        (blur)="buscarCep($event.target.value,f)" name="cep" ngModel #cep="ngModel"
-        >
+          (blur)="buscarCep($event.target.value,f)" name="cep" ngModel #cep="ngModel">
         <label for="cep">CEP</label>
       </div>
     </div>
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="localidade" placeholder="Cidade"
-        name="localidade" ngModel #localidade="ngModel" disabled>
+        <input type="text" class="form-control" id="localidade" placeholder="Cidade" name="localidade" ngModel
+          #localidade="ngModel" disabled>
         <label for="localidade">Cidade</label>
       </div>
     </div>
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2"
-        name="uf" ngModel #uf="ngModel" disabled>
+        <input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2" name="uf" ngModel #uf="ngModel"
+          disabled>
         <label for="uf">UF</label>
       </div>
     </div>
@@ -89,15 +94,15 @@
   <div class="row g-3">
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="bairro" placeholder="Bairro"
-        name="bairro" ngModel #bairro="ngModel" disabled>
+        <input type="text" class="form-control" id="bairro" placeholder="Bairro" name="bairro" ngModel #bairro="ngModel"
+          disabled>
         <label for="bairro">Bairro</label>
       </div>
     </div>
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="logradouro" placeholder="Logradouro"
-        name="logradouro" ngModel #logradouro="ngModel" disabled>
+        <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" name="logradouro" ngModel
+          #logradouro="ngModel" disabled>
         <label for="logradouro">Logradouro</label>
       </div>
     </div>
