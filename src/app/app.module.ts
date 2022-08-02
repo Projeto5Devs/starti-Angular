@@ -15,7 +15,6 @@ import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CepService } from './cadastro/services/cep-service.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
