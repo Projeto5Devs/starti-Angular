@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CepService } from './services/cep-service.service';
+import { CepService } from '../services/cep-service.service';
+
 
 @Component({
   selector: 'app-cadastro-candidato',

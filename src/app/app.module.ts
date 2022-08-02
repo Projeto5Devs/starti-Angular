@@ -13,8 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CepService } from './cadastro/cadastro-candidato/services/cep-service.service';
-
+import { CepService } from './cadastro/services/cep-service.service';
 
 
 @NgModule({
