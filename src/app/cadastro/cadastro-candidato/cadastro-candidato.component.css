@@ -43,7 +43,7 @@ input, label {
   margin-right: 5px;
 }
 
-#alerta-cpf{
+.mensagem, #alerta-cpf{
   color: red;
   font-size: 15px;
 }

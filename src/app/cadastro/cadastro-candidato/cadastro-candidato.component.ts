@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { CepService } from '../services/cep-service.service';
 
 
@@ -10,9 +10,8 @@ import { CepService } from '../services/cep-service.service';
 })
 export class CadastroCandidatoComponent implements OnInit {
 
-  novoCandidatoForm: FormGroup;
 
-  constructor(private _cepService: CepService, private formBuilder: FormBuilder) { }
+  constructor(private _cepService: CepService) { }
 
   buscarCep(valor, form) {
     this._cepService.buscarCepService(valor)
@@ -74,8 +73,6 @@ export class CadastroCandidatoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.novoCandidatoForm = this.formBuilder.group({
-      nome: ['', [Validators.required]]
-    })
+
   }
 }
