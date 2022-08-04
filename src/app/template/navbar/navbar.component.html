@@ -28,8 +28,19 @@
         </li>
       </ul>
 
-      <a href="/cadastro"><button class="nav-link getstarted">Cadastrar-se</button></a>
-      <a href="/signin"> <button class="nav-link getstarted">Login</button></a>
+      <div class="bemVindo" *ngIf="user$ | async as user; else login">
+        <i class="fa fa-user-circle fa-2x"></i>
+        <span>Bem vindo(a) {{ user.sub }}</span
+        >|
+        <a (click)="logout()">Sair &nbsp;<i class="fas fa-sign-out"></i></a>
+      </div>
+
+      <ng-template #login>
+        <a href="/cadastro"
+          ><button class="nav-link getstarted">Cadastrar-se</button></a
+        >
+        <a href="/signin"><button class="nav-link getstarted">Login</button></a>
+      </ng-template>
     </div>
   </div>
 </nav>

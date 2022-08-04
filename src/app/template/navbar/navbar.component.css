@@ -48,12 +48,30 @@ color:#fff;
 background-color: #fff;
 }
 
+.bemVindo{
+  color: white;
+}
+
+.bemVindo a{
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.bemVindo > span{
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+
 
 @media screen and (max-width: 991px){
 
-  button{
+  button, .bemVindo{
       margin-bottom: 10px;
       margin-left: 0px !important;
   }
+
+
+
 
 }
