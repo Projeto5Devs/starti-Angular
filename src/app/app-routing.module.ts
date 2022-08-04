@@ -1,4 +1,4 @@
-import { CadastroModule } from './cadastro/cadastro.module';
+import { ErrorComponent } from './error/error/error.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -18,8 +18,8 @@ const routes: Routes = [
   {
     path: 'cadastro',
     loadChildren: () => import('./cadastro/cadastro.module').then((m) => m.CadastroModule),
-  }
-
+  },
+  {path: '**', component: ErrorComponent}
 ];
 
 @NgModule({

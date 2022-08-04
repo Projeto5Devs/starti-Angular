@@ -1,4 +1,24 @@
 .botoes {
   margin: 20px 1%;
-  display:inline-block;
+  border:none;
+  background-color:  #631ddc !important;
+  border-radius: 8px;
+  max-width: 280px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+span{
+  color: #fff;
+}
+
+a:hover{
+  background-color:  #730bcd !important;
+}
+
+.img-cadastro {
+  width: 380px;
+  display: block;
+  margin: auto;
+  padding-top: 50px;
 }
