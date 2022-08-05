@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CepService } from '../services/cep-service.service';
 
@@ -9,7 +10,7 @@ import { CepService } from '../services/cep-service.service';
 })
 export class CadastroCandidatoComponent implements OnInit {
 
-  constructor(private _cepService: CepService) { }
+  constructor(private _cepService: CepService, private http: HttpClient) { }
 
   onSubmit(form) {
 
