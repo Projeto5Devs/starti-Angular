@@ -1,11 +1,9 @@
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-footer{
-  background:#f9f9f9;
-  width: 100%;
+footer {
+  background-color: rgba(79, 79, 79, 0.037) !important;
 }
-
 .foot-icons {
   margin-top:60px;
 }
@@ -74,40 +72,7 @@ footer{
   transition: 1s;
 }
 
-/*--------------------------------------------------------------
-# Botão de volta para o início
---------------------------------------------------------------*/
-.back-to-top {
-  position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 20px;
-  bottom: 15px;
-  z-index: 996;
-  background: #5846f9;
-  padding: 10px 15px;
-  border-radius: 4px;
-  transition: all 0.4s;
-  color:#fff;
-}
-.back-to-top{
-    display: block;
-}
 
-.back-to-top > i {
-  color: #fff;
-  line-height: 0;
-}
-
-.back-to-top:hover {
-  background: #7b27d8;
-  color: #fff;
-}
-
-.back-to-top.active {
-  visibility: visible;
-  opacity: 1;
-}
 
 
 

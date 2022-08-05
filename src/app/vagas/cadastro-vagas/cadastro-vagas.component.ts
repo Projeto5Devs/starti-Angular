@@ -21,6 +21,7 @@ export class CadastroVagasComponent implements OnInit {
       cargo: ['', [Validators.required]],
       descricao: ['', [Validators.required]],
       salario: [],
+      tipo: [],
       modalidade: ['', [Validators.required]],
       prazo: ['', [Validators.required]]
     })

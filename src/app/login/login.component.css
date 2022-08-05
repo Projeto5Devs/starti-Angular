@@ -5,7 +5,7 @@
   border-radius: 10px;
   padding: 50px;
   min-width: 300px;
-  height: 100vh;
+
 }
 
 .row{
@@ -67,6 +67,6 @@ button:hover{
     margin-top: 50px;
   }
 
-  
+
 
 }

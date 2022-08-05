@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth/auth.guard';
 import { ErrorComponent } from './error/error/error.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,7 +15,9 @@ const routes: Routes = [
     loadChildren: () => import('./vagas/vagas.module').then((m) => m.VagasModule),
   },
 
-  {path: 'signin', component: LoginComponent},
+  {path: 'signin',
+   component: LoginComponent,
+    canActivate: [AuthGuard]},
   {
     path: 'cadastro',
     loadChildren: () => import('./cadastro/cadastro.module').then((m) => m.CadastroModule),
