@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CepService } from './cadastro/services/cep-service.service';
 import { TemplateModule } from './template/template.module';
+import { NgxScrollTopModule } from 'ngx-scrolltop';
 
 
 
@@ -37,7 +38,7 @@ import { TemplateModule } from './template/template.module';
     CadastroModule,
     FormsModule,                               // <========== Add this line!
     ReactiveFormsModule,
-    HomeModule,
+    HomeModule
   ],
   exports: [FormsModule, ReactiveFormsModule],
   providers: [CepService, FormBuilder],
