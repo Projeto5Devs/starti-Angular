@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import jwtDecode from 'jwt-decode';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { TokenService } from '../token/token.service';
+
 import { Usuario } from './usuario';
 
 @Injectable({
@@ -33,7 +34,7 @@ export class UserService {
   }
 
   estaLogado(){
-    return this.tokenService.retornaToken;
+    return this.tokenService.possuiToken();
   }
 
   salvaToken(token: string) {

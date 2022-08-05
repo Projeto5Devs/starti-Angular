@@ -3,6 +3,7 @@ export interface CadastroVagas {
   descricao: string;
 	salario: number
 	modalidade: string;
+  tipo: string;
 	prazo: Date;
 	cargo: string;
 }

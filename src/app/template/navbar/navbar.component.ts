@@ -1,8 +1,10 @@
-import { Usuario } from './../../service/user/usuario';
+
 import { Observable } from 'rxjs';
-import { UserService } from './../../service/user/user.service';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/user/user.service';
+import { Usuario } from 'src/app/user/usuario';
 
 @Component({
   selector: 'app-navbar',
