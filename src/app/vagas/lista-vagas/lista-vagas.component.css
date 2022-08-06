@@ -8,8 +8,8 @@
   vertical-align: top;
 }
 
-span{
-  color: #fff;
+#btn{
+ color:#fff;
 }
 
 a:hover{
@@ -17,9 +17,14 @@ a:hover{
 }
 
 .img-cadastro {
-  width: 490px;
-  display: block;
-  margin: auto;
-  padding-top: 60px;
-  padding-bottom: 40px;
+  width: 60%;
 }
+
+.row{
+  margin-left: 50px;
+}
+
+.title{
+  margin-top: 20px;
+}
+

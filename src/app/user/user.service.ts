@@ -12,6 +12,7 @@ import { Usuario } from './usuario';
 export class UserService {
 
   private userSubject = new BehaviorSubject<Usuario>(null)
+  private username: string
 
   constructor(private tokenService: TokenService) {
     this.tokenService.possuiToken() && this.decodificaJWT();
@@ -20,6 +21,7 @@ export class UserService {
   private decodificaJWT(){
     const token = this.tokenService.retornaToken()
     const usuario = jwtDecode(token) as Usuario
+    this.username = usuario.sub;
     this.userSubject.next(usuario)
     console.log(usuario)
   }
@@ -42,4 +44,7 @@ export class UserService {
     this.decodificaJWT()
   }
 
+  getUsername() {
+    return this.username;
+  }
 }

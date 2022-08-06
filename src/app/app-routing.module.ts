@@ -21,6 +21,7 @@ const routes: Routes = [
   {
     path: 'cadastro',
     loadChildren: () => import('./cadastro/cadastro.module').then((m) => m.CadastroModule),
+    canActivate: [AuthGuard]
   },
   {path: '**', component: ErrorComponent}
 ];

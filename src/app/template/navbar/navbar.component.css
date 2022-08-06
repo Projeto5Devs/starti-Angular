@@ -9,7 +9,7 @@ button:hover a{
 }
 
 .navbar{
-  background: rgb(38, 2, 44);
+  background: rgb(38, 4, 63);
   width: 100%;
 }
 
@@ -63,15 +63,11 @@ background-color: #fff;
 }
 
 
-
 @media screen and (max-width: 991px){
 
   button, .bemVindo{
       margin-bottom: 10px;
       margin-left: 0px !important;
   }
-
-
-
 
 }

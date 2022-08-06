@@ -1,24 +1,36 @@
 .botoes {
   margin: 20px 1%;
-  border:none;
-  background-color:  #631ddc !important;
+  border:none !important;
+  background-color:  transparent;
   border-radius: 8px;
-  max-width: 280px;
+  max-width: 300px;
   display: inline-block;
   vertical-align: top;
 }
 
-span{
-  color: #fff;
+.btn{
+  border: none;
 }
 
-a:hover{
-  background-color:  #730bcd !important;
+span{
+  color: #631ddc ;
 }
 
 .img-cadastro {
   width: 380px;
   display: block;
-  margin: auto;
   padding-top: 50px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.img-cadastro:hover{
+  background-color:  #631ddc  !important;
+  height: 100%;
+}
+
+.img-cadastro:hover span{
+  border: none !important;
+  color: #fff;
 }
