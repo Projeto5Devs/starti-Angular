@@ -9,7 +9,10 @@
  background-color:  #631ddc !important;
  padding: 5px 10px;
  margin-top: 5px;
- border-radius: 2px;
+}
+
+.candidatura{
+  border-radius: 8px;
 }
 
 #btn:hover{
@@ -31,6 +34,7 @@ a:hover{
   background-color:  #730bcd !important;
 }
 
+
 .img-cadastro {
   width: 60%;
 }
@@ -46,7 +50,7 @@ a:hover{
 }
 
 .list-group-item:hover{
-  background-color: rgb(252, 252, 252) !important;
+  background-color: rgba(141, 164, 255, 0.135) !important;
 }
 
 .search-form{
@@ -62,12 +66,13 @@ a:hover{
   min-width: 360px;
 }
 
-.list-group{
+.sidebar-search{
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 
 
 @media screen and (max-width:991px){

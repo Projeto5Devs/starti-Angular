@@ -1,13 +1,11 @@
 <div class="row">
   <div class="col-lg-4">
-    <div class="list-group">
+    <div class="list-group sidebar-search">
       <div class="sidebar">
         <div class="sidebar-item search-form">
           <h5 class="title">Pesquisar palavra-chave</h5>
-          <form action="">
-            <input type="text" />
-            <button type="submit" id="btn"><i class="fa fa-search"></i></button>
-          </form>
+          <input type="text" />
+          <button type="submit" id="btn"><i class="fa fa-search"></i></button>
         </div>
 
         <fieldset>
@@ -19,7 +17,6 @@
               name="tipoVaga"
               id="checkEstagio"
               value="Estagio"
-              formControlName="tipoVaga"
             />
             <label for="radioEstagio">Estágio</label>
           </div>
@@ -30,7 +27,6 @@
               name="tipo"
               id="radioJunior"
               value="Júnior"
-              formControlName="tipo"
             />
             <label for="radioJunior">Júnior</label>
           </div>
@@ -45,7 +41,6 @@
               name="tipoVaga"
               id="checkEstagio"
               value="Estagio"
-              formControlName="tipoVaga"
             />
             <label for="radioEstagio">Home Office</label>
           </div>
@@ -56,7 +51,6 @@
               name="tipo"
               id="radioJunior"
               value="Júnior"
-              formControlName="tipo"
             />
             <label for="radioJunior">Presencial</label>
           </div>
@@ -67,7 +61,6 @@
               name="tipo"
               id="radioJunior"
               value="Júnior"
-              formControlName="tipo"
             />
             <label for="radioJunior">Híbrido</label>
           </div>
@@ -95,146 +88,48 @@
       <div
         class="vagasHeader d-flex align-items-center p-3 my-3 rounded shadow-sm"
       >
-        <h5 class="mb-0">Nossas últimas Vagas</h5>
+        <h5 class="mb-0">Nossas Vagas</h5>
       </div>
       <div class="list-group w-auto">
-        <a
-          href="#"
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <img
-            src="https://github.com/twbs.png"
-            alt="twbs"
-            width="32"
-            height="32"
-            class="rounded-circle flex-shrink-0"
-          />
-          <div class="d-flex gap-2 w-100 justify-content-between">
-            <div>
-              <h6 class="mb-0">Desenvolvimento Web Full-Stack</h6>
-              <p class="mb-0 opacity-75">Empresa xxxxxx</p>
-              <button id="btn">Saber mais</button>
-            </div>
-            <small class="opacity-50 text-nowrap">now</small>
+        <form [formGroup]="form">
+          <div *ngFor="let vaga of vagas; let i = index">
+            <a
+              class="list-group-item list-group-item-action d-flex gap-3 py-3 mb-4"
+              aria-current="true"
+            >
+              <img
+                src="https://github.com/twbs.png"
+                alt="twbs"
+                width="32"
+                height="32"
+                class="rounded-circle flex-shrink-0"
+              />
+              <div class="d-flex gap-2 w-100 justify-content-between">
+                <div>
+                  <p class="mb-0">
+                    <small>Tipo: {{ vagas[i].tipo }} </small>
+                  </p>
+                  <p class="mb-0">
+                    <small>Salário: R${{ vagas[i].salario }} </small>
+                  </p>
+                  <p>
+                    <small>Modalidade: {{ vagas[i].modalidade }} </small>
+                  </p>
+                  <h5 class="mb-1">
+                    Empresa: {{ vagas[i].empresa.nomeFantasia }}
+                  </h5>
+                  <h6>{{ vagas[i].cargo }}</h6>
+                  <p class="mb-2 opacity-75">{{ vagas[i].descricao }}</p>
+                  <p class="mb-2 opacity-75">
+                    <small>Prazo final para candidatura: {{ vagas[i].prazo | date: 'dd/MM/yyyy' }}</small>
+                  </p>
+                  <button id="btn" class="candidatura">Candidatar-se</button>
+                </div>
+                <small class="opacity-50 text-nowrap">{{vagas[i].dataCriacao | dateAgoExample}}</small>
+              </div>
+            </a>
           </div>
-        </a>
-        <a
-          href="#"
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <img
-            src="https://github.com/twbs.png"
-            alt="twbs"
-            width="32"
-            height="32"
-            class="rounded-circle flex-shrink-0"
-          />
-          <div class="d-flex gap-2 w-100 justify-content-between">
-            <div>
-              <h6 class="mb-0">Another title here</h6>
-              <p class="mb-0 opacity-75">
-                Some placeholder content in a paragraph that goes a little
-                longer so it wraps to a new line.
-              </p>
-              <button id="btn">Saber mais</button>
-            </div>
-            <small class="opacity-50 text-nowrap">3d</small>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <img
-            src="https://github.com/twbs.png"
-            alt="twbs"
-            width="32"
-            height="32"
-            class="rounded-circle flex-shrink-0"
-          />
-          <div class="d-flex gap-2 w-100 justify-content-between">
-            <div>
-              <h6 class="mb-0">Third heading</h6>
-              <p class="mb-0 opacity-75">
-                Some placeholder content in a paragraph.
-              </p>
-              <button id="btn">Saber mais</button>
-            </div>
-            <small class="opacity-50 text-nowrap">1w</small>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <img
-            src="https://github.com/twbs.png"
-            alt="twbs"
-            width="32"
-            height="32"
-            class="rounded-circle flex-shrink-0"
-          />
-          <div class="d-flex gap-2 w-100 justify-content-between">
-            <div>
-              <h6 class="mb-0">Third heading</h6>
-              <p class="mb-0 opacity-75">
-                Some placeholder content in a paragraph.
-              </p>
-              <button id="btn">Saber mais</button>
-            </div>
-            <small class="opacity-50 text-nowrap">1w</small>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <img
-            src="https://github.com/twbs.png"
-            alt="twbs"
-            width="32"
-            height="32"
-            class="rounded-circle flex-shrink-0"
-          />
-          <div class="d-flex gap-2 w-100 justify-content-between">
-            <div>
-              <h6 class="mb-0">Third heading</h6>
-              <p class="mb-0 opacity-75">
-                Some placeholder content in a paragraph.
-              </p>
-              <button id="btn">Saber mais</button>
-            </div>
-            <small class="opacity-50 text-nowrap">1w</small>
-          </div>
-        </a>
-        <a
-          href="#"
-          class="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <img
-            src="https://github.com/twbs.png"
-            alt="twbs"
-            width="32"
-            height="32"
-            class="rounded-circle flex-shrink-0"
-          />
-          <div class="d-flex gap-2 w-100 justify-content-between">
-            <div>
-              <h6 class="mb-0">Third heading</h6>
-              <p class="mb-0 opacity-75">
-                Some placeholder content in a paragraph.
-              </p>
-              <button id="btn">Saber mais</button>
-            </div>
-            <small class="opacity-50 text-nowrap">1w</small>
-          </div>
-        </a>
+        </form>
       </div>
     </div>
   </div>

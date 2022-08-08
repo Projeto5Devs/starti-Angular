@@ -19,13 +19,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { CepService } from './cadastro/services/cep-service.service';
 import { TemplateModule } from './template/template.module';
 import { NgxScrollTopModule } from 'ngx-scrolltop';
+import { DateAgoExamplePipe } from './pipes/date-ago-example.pipe';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
