@@ -81,7 +81,6 @@
         </div>
       </div>
     </div>
-    <!-- End blog sidebar -->
   </div>
   <div class="col-lg-7 listaVagas mb-5 mt-5">
     <div class="px-5">
@@ -121,11 +120,19 @@
                   <h6>{{ vagas[i].cargo }}</h6>
                   <p class="mb-2 opacity-75">{{ vagas[i].descricao }}</p>
                   <p class="mb-2 opacity-75">
-                    <small>Prazo final para candidatura: {{ vagas[i].prazo | date: 'dd/MM/yyyy' }}</small>
+                    <small
+                      >Prazo final para candidatura:
+                      {{ vagas[i].prazo | date: "dd/MM/yyyy" }}</small
+                    >
                   </p>
-                  <button id="btn" class="candidatura">Candidatar-se</button>
+
+                  <!-- user$ | async as user -->
+                  <div *ngFor="let role of roles">
+                  <button id="btn" class="candidatura" *ngIf="role === 'ROLE_USER_PF' ">Candidatar-se</button></div>
                 </div>
-                <small class="opacity-50 text-nowrap">{{vagas[i].dataCriacao | dateAgoExample}}</small>
+                <small class="opacity-50 text-nowrap">{{
+                  vagas[i].dataCriacao | dateAgoExample
+                }}</small>
               </div>
             </a>
           </div>

@@ -19,7 +19,8 @@ import { DateAgoExamplePipe } from '../pipes/date-ago-example.pipe';
     CommonModule,
     VagasRoutingModule,
     ReactiveFormsModule,
-    MensagemModule
+    MensagemModule,
+   
   ]
 })
 export class VagasModule { }

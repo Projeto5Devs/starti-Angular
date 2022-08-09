@@ -106,3 +106,8 @@ a:hover{
 }
 
 
+
+.visible {
+  display: block;
+}
+

@@ -13,6 +13,7 @@ export class UserService {
 
   private userSubject = new BehaviorSubject<Usuario>(null)
   private username: string
+  private roles: string[]
 
   constructor(private tokenService: TokenService) {
     this.tokenService.possuiToken() && this.decodificaJWT();
@@ -22,13 +23,15 @@ export class UserService {
     const token = this.tokenService.retornaToken()
     const usuario = jwtDecode(token) as Usuario
     this.username = usuario.sub;
+    this.roles = usuario.roles
     this.userSubject.next(usuario)
-    console.log(usuario)
+    console.log(this.roles)
   }
 
   retornaUsuario(){
     return this.userSubject.asObservable()
   }
+
 
   logout(){
     this.tokenService.excluirToken();
@@ -46,5 +49,9 @@ export class UserService {
 
   getUsername() {
     return this.username;
+  }
+
+  getRoles(){
+    return this.roles;
   }
 }
