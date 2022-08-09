@@ -1,0 +1,191 @@
+<div class="wrapper d-flex align-items-stretch">
+  <nav id="sidebar">
+    <div class="p-4 pt-5">
+      <h1><a href="index.html" class="logo">STARTI</a></h1>
+      <h4>Seja bem vindo!</h4>
+      <ul class="list-unstyled components mb-5">
+        <li>
+          <a href="">Home</a>
+        </li>
+        <li>
+          <a href="/vagas">Vagas</a>
+        </li>
+        <li>
+          <a href="/candidato">Minhas Candidaturas</a>
+        </li>
+        <li>
+          <a href="/candidato/editar-perfil">Editar Perfil</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <!-- Page Content  -->
+  <div id="content" class="p-4 p-md-5 pt-5">
+    <div class="vagasHeader d-flex align-items-center p-3 my-3 rounded shadow-sm">
+      <h5 class="mb-0">Editar Perfil</h5>
+    </div>
+    <form class="form-floating">
+
+      <div class="row g-3">
+
+        <div class="col-md">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="nome" placeholder="Nome">
+            <label for="nome">Nome</label>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="sobrenome" placeholder="Sobrenome">
+            <label for="sobrenome">Sobrenome</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="cpf" placeholder="CPF" maxlength="14">
+            <label for="cpf">CPF</label>
+          </div>
+        </div>
+
+        <div class="col-md">
+          <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="datadenascimento" placeholder="Data de Nascimento">
+            <label for="datadenascimento">Data de Nascimento</label>
+          </div>
+        </div>
+
+      </div>
+
+      <hr>
+      <h4>Contato</h4>
+
+      <div ngModelGroup="contato">
+
+        <div class="form-floating mb-3">
+          <input type="tel" class="form-control" id="telefone" placeholder="Telefone">
+          <label for="telefone">Telefone</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="email" placeholder="name@example.com">
+          <label for="email">Email</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="url" class="form-control" id="website" placeholder="Website">
+          <label for="website">Website</label>
+        </div>
+
+      </div>
+
+      <hr>
+      <h4>Endereço</h4>
+
+      <div ngModelGroup="endereco">
+
+        <div class="row g-3">
+
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="cep" placeholder="CEP" maxlength="9">
+              <label for="cep">CEP</label>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="localidade" placeholder="Cidade">
+              <label for="localidade">Cidade</label>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2">
+              <label for="uf">UF</label>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row g-3">
+
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+              <label for="bairro">Bairro</label>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="logradouro" placeholder="Logradouro">
+              <label for="logradouro">Logradouro</label>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row g-3">
+
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="numero" placeholder="Número">
+              <label for="numero">Número</label>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="complemento" placeholder="Complemento">
+              <label for="complemento">Complemento</label>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <hr>
+      <h4>Login</h4>
+
+      <div ngModelGroup="usuario">
+
+        <div class="row g-3">
+
+          <div class="col-md">
+            <div class="input-group mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="username" placeholder="Username">
+                <label for="username">Username</label>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="password" class="form-control" id="senha" placeholder="Senha">
+              <label for="senha">Senha</label>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="text-center">
+        <div class="botoes">
+          <button type="submit" class="w-100 btn btn-lg"><span>Atualizar dados</span></button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

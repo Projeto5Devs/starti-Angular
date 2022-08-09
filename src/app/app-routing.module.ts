@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('./cadastro/cadastro.module').then((m) => m.CadastroModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'candidato',
+    loadChildren: () => import('./candidato/candidato.module').then((m) => m.CandidatoModule)
+  },
   {path: '**', component: ErrorComponent}
 ];
 
