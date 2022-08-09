@@ -8,7 +8,8 @@
 
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" [ngClass]="validacaoCampo(nomefantasia)" id="nomefantasia" placeholder="Nome Fantasia" name="nomefantasia" ngModel required #nomefantasia="ngModel">
+        <input type="text" class="form-control" [ngClass]="validacaoCampo(nomefantasia)" id="nomefantasia"
+          placeholder="Nome Fantasia" name="nomefantasia" ngModel required #nomefantasia="ngModel">
         <label for="nomefantasia" required>Nome Fantasia</label>
         <div class="mensagem" *ngIf="!nomefantasia.valid && nomefantasia.touched">
           Campo obrigatório
@@ -18,7 +19,8 @@
 
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" [ngClass]="validacaoCampo(razaosocial)" id="razaosocial" placeholder="Razão Social" name="razaosocial" ngModel required #razaosocial="ngModel">
+        <input type="text" class="form-control" [ngClass]="validacaoCampo(razaosocial)" id="razaosocial"
+          placeholder="Razão Social" name="razaosocial" ngModel required #razaosocial="ngModel">
         <label for="razaosocial">Razão Social</label>
         <div class="mensagem" *ngIf="!razaosocial.valid && razaosocial.touched">
           Campo obrigatório
@@ -32,7 +34,8 @@
 
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" [ngClass]="validacaoCampo(cnpj)" id="cnpj" placeholder="CNPJ" maxlength="18" name="cnpj" ngModel required #cnpj="ngModel" (blur)="validacaoCNPJ($event.target.value)">
+        <input type="text" class="form-control" [ngClass]="validacaoCampo(cnpj)" id="cnpj" placeholder="CNPJ"
+          maxlength="18" name="cnpj" ngModel required #cnpj="ngModel" (blur)="validacaoCNPJ($event.target.value)">
         <label for="cnpj">CNPJ</label>
         <small id="alerta-cnpj" style="display: none;">CNPJ inválido! <br></small>
         <small class="form-text text-muted">Digite no formato: XX. XXX. XXX/0001-XX</small>
@@ -41,7 +44,8 @@
 
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" [ngClass]="validacaoCampo(segmento)" id="segmento" placeholder="Segmento" name="segmento" ngModel required #segmento="ngModel">
+        <input type="text" class="form-control" [ngClass]="validacaoCampo(segmento)" id="segmento"
+          placeholder="Segmento" name="segmento" ngModel required #segmento="ngModel">
         <label for="segmento">Segmento</label>
         <div class="mensagem" *ngIf="!razaosocial.valid && razaosocial.touched">
           Campo obrigatório
@@ -102,16 +106,16 @@
 
       <div class="col-md">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="localidade" placeholder="Cidade" name="localidade" ngModel
-            #localidade="ngModel" required>
-          <label for="localidade">Cidade</label>
+          <input type="text" class="form-control" id="cidade" placeholder="Cidade" name="cidade" ngModel
+            #cidade="ngModel" required>
+          <label for="cidade">Cidade</label>
         </div>
       </div>
 
       <div class="col-md">
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2" name="uf" ngModel #uf="ngModel"
-          required >
+          required>
           <label for="uf">UF</label>
         </div>
       </div>
@@ -130,9 +134,9 @@
 
       <div class="col-md">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" name="logradouro" ngModel
-            #logradouro="ngModel" required>
-          <label for="logradouro">Logradouro</label>
+          <input type="text" class="form-control" id="rua" placeholder="Rua" name="rua" ngModel
+            #rua="ngModel" required>
+          <label for="rua">Rua</label>
         </div>
       </div>
 
@@ -168,7 +172,7 @@
   <hr>
   <h4>Login</h4>
 
-  <div ngModelGroup="login">
+  <div ngModelGroup="usuario">
 
     <div class="row g-3">
 
@@ -187,10 +191,10 @@
 
       <div class="col-md">
         <div class="form-floating">
-          <input type="password" class="form-control" [ngClass]="validacaoCampo(senha)" id="senha" placeholder="Senha"
-            name="senha" ngModel #senha="ngModel" required>
+          <input type="password" class="form-control" [ngClass]="validacaoCampo(password)" id="password"
+            placeholder="Senha" name="password" ngModel #password="ngModel" required>
           <label for="senha">Senha</label>
-          <div class="mensagem" *ngIf="!senha.valid && senha.touched">
+          <div class="mensagem" *ngIf="!password.valid && password.touched">
             Campo obrigatório
           </div>
         </div>

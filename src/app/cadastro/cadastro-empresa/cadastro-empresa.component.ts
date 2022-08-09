@@ -24,9 +24,9 @@ export class CadastroEmpresaComponent implements OnInit {
     formulario.form.patchValue({
       endereco: {
         cep: dados.cep,
-        logradouro: dados.logradouro,
+        rua: dados.logradouro,
         bairro: dados.bairro,
-        localidade: dados.localidade,
+        cidade: dados.localidade,
         uf: dados.uf
       }
     })

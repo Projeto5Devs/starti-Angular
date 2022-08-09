@@ -171,7 +171,7 @@
   <hr>
   <h4>Login</h4>
 
-  <div ngModelGroup="login">
+  <div ngModelGroup="usuario">
 
     <div class="row g-3">
 
@@ -190,10 +190,10 @@
 
       <div class="col-md">
         <div class="form-floating">
-          <input type="password" class="form-control" [ngClass]="validacaoCampo(senha)" id="senha" placeholder="Senha"
-            name="senha" ngModel #senha="ngModel" required>
+          <input type="password" class="form-control" [ngClass]="validacaoCampo(password)" id="password" placeholder="Senha"
+            name="password" ngModel #password="ngModel" required>
           <label for="senha">Senha</label>
-          <div class="mensagem" *ngIf="!senha.valid && senha.touched">
+          <div class="mensagem" *ngIf="!password.valid && password.touched">
             Campo obrigatório
           </div>
         </div>
