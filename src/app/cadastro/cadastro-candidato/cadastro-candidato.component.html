@@ -43,10 +43,10 @@
 
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="date" class="form-control" [ngClass]="validacaoCampo(datadenascimento)" id="datadenascimento"
-          placeholder="Data de Nascimento" name="datadenascimento" ngModel required #datadenascimento="ngModel">
+        <input type="date" class="form-control" [ngClass]="validacaoCampo(dataDeNascimento)" id="datadenascimento"
+          placeholder="Data de Nascimento" name="dataDeNascimento" ngModel required #dataDeNascimento="ngModel">
         <label for="datadenascimento">Data de Nascimento</label>
-        <div class="mensagem" *ngIf="!datadenascimento.valid && datadenascimento.touched">
+        <div class="mensagem" *ngIf="!dataDeNascimento.valid && dataDeNascimento.touched">
           Campo obrigatório
         </div>
       </div>
@@ -105,9 +105,9 @@
 
       <div class="col-md">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="localidade" placeholder="Cidade" name="localidade" ngModel
-            #localidade="ngModel" required>
-          <label for="localidade">Cidade</label>
+          <input type="text" class="form-control" id="cidade" placeholder="Cidade" name="cidade" ngModel
+            #cidade="ngModel" required>
+          <label for="cidade">Cidade</label>
         </div>
       </div>
 
@@ -133,9 +133,9 @@
 
       <div class="col-md">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" name="logradouro" ngModel
-            #logradouro="ngModel" required>
-          <label for="logradouro">Logradouro</label>
+          <input type="text" class="form-control" id="rua" placeholder="Rua" name="rua" ngModel
+            #rua="ngModel" required>
+          <label for="rua">Rua</label>
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CepService } from '../services/cep-service.service';
 
@@ -12,8 +12,13 @@ export class CadastroCandidatoComponent implements OnInit {
 
   constructor(private _cepService: CepService, private http: HttpClient) { }
 
-  onSubmit(form) {
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  }
 
+  onSubmit(form) {
+    this.http.post('http://localhost:8080/pessoafisica/v1', JSON.stringify(form.value), this.httpOptions)
+      .subscribe(dados => console.log(dados));
   }
 
   buscarCep(valor, form) {
@@ -25,9 +30,9 @@ export class CadastroCandidatoComponent implements OnInit {
     formulario.form.patchValue({
       endereco: {
         cep: dados.cep,
-        logradouro: dados.logradouro,
+        rua: dados.logradouro,
         bairro: dados.bairro,
-        localidade: dados.localidade,
+        cidade: dados.localidade,
         uf: dados.uf
       }
     })
