@@ -27,36 +27,47 @@
     <div class="vagasHeader d-flex align-items-center p-3 my-3 rounded shadow-sm">
       <h5 class="mb-0">Editar Perfil</h5>
     </div>
-    <form class="form-floating">
+    <form class="form-floating" #f="ngForm">
 
       <div class="row g-3">
 
         <div class="col-md">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="nome" placeholder="Nome">
+            <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" ngModel
+              #nome="ngModel">
             <label for="nome">Nome</label>
           </div>
         </div>
+
         <div class="col-md">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="sobrenome" placeholder="Sobrenome">
+            <input type="text" class="form-control" id="sobrenome" placeholder="Sobrenome" name="sobrenome" ngModel
+             #sobrenome="ngModel">
             <label for="sobrenome">Sobrenome</label>
+
           </div>
         </div>
+
       </div>
 
       <div class="row g-3">
+
         <div class="col-md">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="cpf" placeholder="CPF" maxlength="14">
+            <input type="text" class="form-control" id="cpf" placeholder="CPF" maxlength="14" name="cpf" ngModel
+              #cpf="ngModel" (blur)="validacaoCPF($event.target.value)">
             <label for="cpf">CPF</label>
+            <small id="alerta-cpf" style="display: none;">CPF inválido! <br></small>
+            <small class="form-text text-muted">Digite no formato: 111.111.111-11</small>
           </div>
         </div>
 
         <div class="col-md">
           <div class="form-floating mb-3">
-            <input type="date" class="form-control" id="datadenascimento" placeholder="Data de Nascimento">
+            <input type="date" class="form-control" id="datadenascimento" placeholder="Data de Nascimento"
+              name="dataDeNascimento" ngModel #dataDeNascimento="ngModel">
             <label for="datadenascimento">Data de Nascimento</label>
+
           </div>
         </div>
 
@@ -68,17 +79,21 @@
       <div ngModelGroup="contato">
 
         <div class="form-floating mb-3">
-          <input type="tel" class="form-control" id="telefone" placeholder="Telefone">
+          <input type="tel" class="form-control" id="telefone" placeholder="Telefone" name="telefone" ngModel
+            #telefone="ngModel">
           <label for="telefone">Telefone</label>
+
         </div>
 
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="email" placeholder="name@example.com">
+          <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" ngModel email #email="ngModel">
           <label for="email">Email</label>
+
         </div>
 
         <div class="form-floating mb-3">
-          <input type="url" class="form-control" id="website" placeholder="Website">
+          <input type="url" class="form-control" id="website" placeholder="Website" ngModel name="website"
+            #website="ngModel">
           <label for="website">Website</label>
         </div>
 
@@ -93,21 +108,25 @@
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="cep" placeholder="CEP" maxlength="9">
+              <input type="text" class="form-control" id="cep" placeholder="CEP" maxlength="9"
+                (blur)="buscarCep($event.target.value, f)" name="cep" ngModel #cep="ngModel">
               <label for="cep">CEP</label>
+
             </div>
           </div>
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="localidade" placeholder="Cidade">
-              <label for="localidade">Cidade</label>
+              <input type="text" class="form-control" id="cidade" placeholder="Cidade" name="cidade" ngModel
+                #cidade="ngModel">
+              <label for="cidade">Cidade</label>
             </div>
           </div>
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2">
+              <input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2" name="uf" ngModel
+                #uf="ngModel">
               <label for="uf">UF</label>
             </div>
           </div>
@@ -118,15 +137,16 @@
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+              <input type="text" class="form-control" id="bairro" placeholder="Bairro" name="bairro" ngModel
+                #bairro="ngModel">
               <label for="bairro">Bairro</label>
             </div>
           </div>
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="logradouro" placeholder="Logradouro">
-              <label for="logradouro">Logradouro</label>
+              <input type="text" class="form-control" id="rua" placeholder="Rua" name="rua" ngModel #rua="ngModel">
+              <label for="rua">Rua</label>
             </div>
           </div>
 
@@ -136,14 +156,17 @@
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="numero" placeholder="Número">
+              <input type="text" class="form-control" id="numero" placeholder="Número" name="numero" ngModel
+                #numero="ngModel">
               <label for="numero">Número</label>
+
             </div>
           </div>
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="complemento" placeholder="Complemento">
+              <input type="text" class="form-control" id="complemento" placeholder="Complemento" name="complemento"
+                ngModel #complemento="ngModel">
               <label for="complemento">Complemento</label>
 
             </div>
@@ -162,7 +185,8 @@
           <div class="col-md">
             <div class="input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="username" placeholder="Username">
+                <input type="text" class="form-control" id="username" placeholder="Username" name="username" ngModel
+                  #username="ngModel">
                 <label for="username">Username</label>
 
               </div>
@@ -171,7 +195,8 @@
 
           <div class="col-md">
             <div class="form-floating">
-              <input type="password" class="form-control" id="senha" placeholder="Senha">
+              <input type="password" class="form-control" id="password" placeholder="Senha" name="password" ngModel
+                #password="ngModel">
               <label for="senha">Senha</label>
 
             </div>
@@ -185,6 +210,7 @@
           <button type="submit" class="w-100 btn btn-lg"><span>Atualizar dados</span></button>
         </div>
       </div>
+
     </form>
 
   </div>

@@ -104,3 +104,8 @@
       margin-right: 5px;
       color: white;
     }
+
+    #alerta-cpf{
+      color: red;
+      font-size: 15px;
+    }
