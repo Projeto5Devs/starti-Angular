@@ -15,14 +15,30 @@ export class NavbarComponent {
 
   user$: Observable<Usuario>
   public responsiveLayout = false
+  roles: string[]
 
   constructor(private userService:UserService, private router: Router) {
     this.user$ = userService.retornaUsuario()
+    this.roles = userService.getRoles()
   }
 
   logout(){
     this.userService.logout();
     this.router.navigate([''])
+  }
+
+
+  linkPerfil(roles: []){
+    console.log(roles)
+    for(let i in roles){
+      if(roles[i] === 'ROLE_USER_PF'){
+        this.router.navigate(['/candidato']);
+      }
+      if(roles[i] === 'ROLE_ADMIN'){
+        this.router.navigate(['/']);
+      }
+    }
+
   }
 
   ngOnInit() {

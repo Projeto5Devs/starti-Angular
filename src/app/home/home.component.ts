@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import Swiper, { Navigation, Pagination } from 'swiper';
+import { ListaVagasService } from '../vagas/lista-vagas/lista-vagas.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,20 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(){
+  formulario: FormGroup;
+  vagas: []
+  imagens: []
+
+  constructor(private listaVagas: ListaVagasService, private formBuilder: FormBuilder){
+
+    this.formulario = this.formBuilder.group({
+      vagas: ['']
+    });
+
+    const observable = this.listaVagas.getEmbedded()
+    observable.subscribe( vagas => {
+    this.vagas =  vagas._embedded.vagaVOList;
+    } );
 
     Swiper.use([Navigation, Pagination]);
 

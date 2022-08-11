@@ -80,6 +80,14 @@
           Até R$<span id="rangeval">10.000</span>
         </div>
       </div>
+
+      <div class="voltar mt-5">
+        <a href="javascript:void(0)" (click)="voltar()">
+          <i class="fa-solid fa-circle-left"></i>
+          Voltar
+        </a>
+      </div>
+
     </div>
   </div>
   <div class="col-lg-7 listaVagas mb-5 mt-5">
@@ -128,7 +136,14 @@
 
                   <!-- user$ | async as user -->
                   <div *ngFor="let role of roles">
-                  <button id="btn" class="candidatura" *ngIf="role === 'ROLE_USER_PF' ">Candidatar-se</button></div>
+                    <button
+                      id="btn"
+                      class="candidatura"
+                      *ngIf="role === 'ROLE_USER_PF'"
+                    >
+                      Candidatar-se
+                    </button>
+                  </div>
                 </div>
                 <small class="opacity-50 text-nowrap">{{
                   vagas[i].dataCriacao | dateAgoExample

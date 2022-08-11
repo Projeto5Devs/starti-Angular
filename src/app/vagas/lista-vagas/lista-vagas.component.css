@@ -73,6 +73,12 @@ a:hover{
   align-items: center;
 }
 
+a:hover{
+  color: #0020f3 !important;
+  transition: 0.6s;
+  background-color: transparent !important;
+}
+
 
 
 @media screen and (max-width:991px){
@@ -104,7 +110,6 @@ a:hover{
     margin: 0;
   }
 }
-
 
 
 .visible {

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from 'src/app/user/user.service';
 import { Usuario } from 'src/app/user/usuario';
 import { Observable } from 'rxjs';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-lista-vagas',
@@ -22,7 +23,8 @@ export class ListaVagasComponent  {
   public responsiveLayout = false
 
 
-  constructor(private listaVagas: ListaVagasService, private formBuilder: FormBuilder, private userService:UserService) {
+
+  constructor(private listaVagas: ListaVagasService, private formBuilder: FormBuilder, private userService:UserService, private _location: Location) {
     this.form = this.formBuilder.group({
       vagas: ['']
     });
@@ -45,5 +47,9 @@ export class ListaVagasComponent  {
       return;
     }
     this.currentIndex = index;
+  }
+
+  voltar() {
+    this._location.back();
   }
 }

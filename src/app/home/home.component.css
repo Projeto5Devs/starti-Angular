@@ -142,6 +142,7 @@ text-align: center;
 background-color: rgb(255, 255, 255);
 border: 1px solid rgb(237, 237, 237);
 box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+margin-bottom: 2rem;
 }
 
 .clients img {
@@ -166,10 +167,23 @@ transform: scale(1.1);
 /*--------------------------------------------------------------
 # últimas Vagas
 --------------------------------------------------------------*/
+
+
+h3{
+  padding: 1rem;
+  height: 68px;
+  margin-bottom: 2rem;
+}
+
+.service-box p{
+  height: 6rem;
+}
+
+
 .services .service-box {
 box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
 height: 100%;
-padding: 60px 30px;
+padding: 1.2rem;
 text-align: center;
 transition: 0.3s;
 border-radius: 5px;
@@ -228,99 +242,19 @@ color: #2db6fa;
 background: #2db6fa;
 }
 
-.services .service-box.orange {
-border-bottom: 3px solid #f68c09;
-}
 
-.services .service-box.orange .icon {
-color: #f68c09;
-background: #fde3c4;
-}
-
-.services .service-box.orange .read-more {
-color: #f68c09;
-}
-
-.services .service-box.orange:hover {
-background: #f68c09;
-}
-
-.services .service-box.green {
-border-bottom: 3px solid #08da4e;
-}
-
-.services .service-box.green .icon {
-color: #08da4e;
-background: #cffddf;
-}
-
-.services .service-box.green .read-more {
-color: #08da4e;
-}
-
-.services .service-box.green:hover {
-background: #08da4e;
-}
-
-.services .service-box.red {
-border-bottom: 3px solid #e9222c;
-}
-
-.services .service-box.red .icon {
-color: #e9222c;
-background: #fef7f8;
-}
-
-.services .service-box.red .read-more {
-color: #e9222c;
-}
-
-.services .service-box.red:hover {
-background: #e9222c;
-}
-
-.services .service-box.purple {
-border-bottom: 3px solid #b50edf;
-}
-
-.services .service-box.purple .icon {
-color: #b50edf;
-background: #f8e4fd;
-}
-
-.services .service-box.purple .read-more {
-color: #b50edf;
-}
-
-.services .service-box.purple:hover {
-background: #b50edf;
-}
-
-.services .service-box.pink {
-border-bottom: 3px solid #f51f9c;
-}
-
-.services .service-box.pink .icon {
-color: #f51f9c;
-background: #feecf7;
-}
-
-.services .service-box.pink .read-more {
-color: #f51f9c;
-}
-
-.services .service-box.pink:hover {
-background: #f51f9c;
-}
-
+.services .service-box:hover,
 .services .service-box:hover h3,
-.services .service-box:hover p,
 .services .service-box:hover .read-more {
 color: #fff;
 }
 
 .services .service-box:hover .icon {
 background: #fff;
+}
+
+a:hover .fa-arrow-right-long{
+  transform: translateX(5px);
 }
 
 /*--------------------------------------------------------------

@@ -55,6 +55,7 @@ background-color: #fff;
 .bemVindo a{
   cursor: pointer;
   margin-left: 5px;
+  display: inline-block;
 }
 
 .bemVindo > span{
