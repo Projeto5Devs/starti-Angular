@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'candidato',
     loadChildren: () => import('./candidato/candidato.module').then((m) => m.CandidatoModule)
   },
+  {
+    path: 'empresa',
+    loadChildren: () => import('./empresa/empresa.module').then((m) => m.EmpresaModule)
+  },
   {path: '**', component: ErrorComponent}
 ];
 
