@@ -8,14 +8,15 @@
 
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+        <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome"
+        [ngClass]="validacaoCampo('nome')">
         <label for="nome">Nome</label>
       </div>
     </div>
 
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="sobrenome" placeholder="Sobrenome" formControlName="sobrenome">
+        <input type="text" class="form-control" id="sobrenome" placeholder="Sobrenome" formControlName="sobrenome" [ngClass]="validacaoCampo('sobrenome')">
         <label for="sobrenome">Sobrenome</label>
       </div>
     </div>
@@ -26,7 +27,8 @@
 
     <div class="col-md">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="cpf" placeholder="CPF" maxlength="14" formControlName="cpf">
+        <input type="text" class="form-control" id="cpf" placeholder="CPF" maxlength="14" formControlName="cpf"
+        (blur)="validacaoCPF()" [ngClass]="validacaoCampo('cpf')">
         <label for="cpf">CPF</label>
         <small id="alerta-cpf" style="display: none;">CPF inválido! <br></small>
         <small class="form-text text-muted">Digite no formato: 111.111.111-11</small>
@@ -36,7 +38,7 @@
     <div class="col-md">
       <div class="form-floating mb-3">
         <input type="date" class="form-control" id="datadenascimento" placeholder="Data de Nascimento"
-          formControlName="dataDeNascimento">
+          formControlName="dataDeNascimento" [ngClass]="validacaoCampo('dataDeNascimento')">
         <label for="datadenascimento">Data de Nascimento</label>
       </div>
     </div>
@@ -48,12 +50,13 @@
 
   <div formGroupName="contato">
     <div class="form-floating mb-3">
-      <input type="tel" class="form-control" id="telefone" placeholder="Telefone" formControlName="telefone">
+      <input type="tel" class="form-control" id="telefone" placeholder="Telefone" formControlName="telefone"
+      [ngClass]="validacaoCampo('contato.telefone')">
       <label for="telefone">Telefone</label>
     </div>
 
     <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+      <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email" [ngClass]="validacaoCampo('contato.email')">
       <label for="email">Email</label>
     </div>
 
@@ -72,21 +75,21 @@
 
       <div class="col-md">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="cep" placeholder="CEP" formControlName="cep">
+          <input type="text" class="form-control" id="cep" placeholder="CEP" formControlName="cep" (blur)="buscarCEP()" [ngClass]="validacaoCampo('endereco.cep')">
           <label for="cep">CEP</label>
         </div>
       </div>
 
       <div class="col-md">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="cidade" placeholder="Cidade" formControlName="cidade">
+          <input type="text" class="form-control" id="cidade" placeholder="Cidade" formControlName="cidade" [ngClass]="validacaoCampo('endereco.cidade')">
           <label for="cidade">Cidade</label>
         </div>
       </div>
 
       <div class="col-md">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2" formControlName="uf">
+          <input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2" formControlName="uf" [ngClass]="validacaoCampo('endereco.uf')">
           <label for="uf">UF</label>
         </div>
       </div>
@@ -97,14 +100,14 @@
 
       <div class="col-md">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="bairro" placeholder="Bairro" formControlName="bairro">
+          <input type="text" class="form-control" id="bairro" placeholder="Bairro" formControlName="bairro" [ngClass]="validacaoCampo('endereco.bairro')">
           <label for="bairro">Bairro</label>
         </div>
       </div>
 
       <div class="col-md">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="rua" placeholder="Rua" formControlName="rua">
+          <input type="text" class="form-control" id="rua" placeholder="Rua" formControlName="rua" [ngClass]="validacaoCampo('endereco.rua')">
           <label for="rua">Rua</label>
         </div>
       </div>
@@ -115,7 +118,7 @@
 
       <div class="col-md">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="numero" placeholder="Número" formControlName="numero">
+          <input type="text" class="form-control" id="numero" placeholder="Número" formControlName="numero" [ngClass]="validacaoCampo('endereco.numero')">
           <label for="numero">Número</label>
         </div>
       </div>
@@ -123,7 +126,7 @@
       <div class="col-md">
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="complemento" placeholder="Complemento"
-            formControlName="complemento">
+            formControlName="complemento" [ngClass]="validacaoCampo('endereco.complemento')">
           <label for="complemento">Complemento</label>
         </div>
       </div>
@@ -141,7 +144,7 @@
       <div class="col-md">
         <div class="input-group mb-3">
           <div class="form-floating">
-            <input type="text" class="form-control" id="username" placeholder="Usuário" formControlName="username">
+            <input type="text" class="form-control" id="username" placeholder="Usuário" formControlName="username" [ngClass]="validacaoCampo('userId.username')">
             <label for="username">Usuário</label>
           </div>
         </div>
@@ -149,7 +152,7 @@
 
       <div class="col-md">
         <div class="form-floating">
-          <input type="password" class="form-control" id="password" placeholder="Senha" formControlName="password">
+          <input type="password" class="form-control" id="password" placeholder="Senha" formControlName="password" [ngClass]="validacaoCampo('userId.password')">
           <label for="senha">Senha</label>
         </div>
       </div>
