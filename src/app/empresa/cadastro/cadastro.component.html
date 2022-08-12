@@ -1,0 +1,169 @@
+<div class="px-4 py-1 my-5 text-center">
+  <h1 class="display-5 fw-bold">Cadastro de empresa</h1>
+</div>
+
+<form [formGroup]="formulario">
+
+  <div class="row g-3">
+
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="nomefantasia" placeholder="Nome Fantasia" formControlName="nomeFantasia"
+        [ngClass]="validacaoCampo('nomeFantasia')">
+        <label for="nome">Nome Fantasia</label>
+      </div>
+    </div>
+
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="razaosocial" placeholder="Razão Social" formControlName="razaoSocial" [ngClass]="validacaoCampo('razaoSocial')">
+        <label for="razaosocial">Razão Social</label>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row g-3">
+
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="cnpj" placeholder="CNPJ" maxlength="18" formControlName="cnpj"
+        (blur)="validacaoCNPJ()" [ngClass]="validacaoCampo('cnpj')">
+        <label for="cnpj">CNPJ</label>
+        <small id="alerta-cnpj" style="display: none;">CNPJ inválido! <br></small>
+        <small class="form-text text-muted">Digite no formato: XX.XXX.XXX/0001-XX</small>
+      </div>
+    </div>
+
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="segmento" placeholder="Segmento"
+          formControlName="segmento" [ngClass]="validacaoCampo('segmento')">
+        <label for="segmento">Segmento</label>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+  <h4>Contato</h4>
+
+  <div formGroupName="contato">
+    <div class="form-floating mb-3">
+      <input type="tel" class="form-control" id="telefone" placeholder="Telefone" formControlName="telefone"
+      [ngClass]="validacaoCampo('contato.telefone')">
+      <label for="telefone">Telefone</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email" [ngClass]="validacaoCampo('contato.email')">
+      <label for="email">Email</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="url" class="form-control" id="website" placeholder="Website" formControlName="website">
+      <label for="website">Website</label>
+    </div>
+  </div>
+
+  <hr>
+  <h4>Endereço</h4>
+
+  <div formGroupName="endereco">
+
+    <div class="row g-3">
+
+      <div class="col-md">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="cep" placeholder="CEP" formControlName="cep" (blur)="buscarCEP()" [ngClass]="validacaoCampo('endereco.cep')">
+          <label for="cep">CEP</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="cidade" placeholder="Cidade" formControlName="cidade" [ngClass]="validacaoCampo('endereco.cidade')">
+          <label for="cidade">Cidade</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2" formControlName="uf" [ngClass]="validacaoCampo('endereco.uf')">
+          <label for="uf">UF</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row g-3">
+
+      <div class="col-md">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="bairro" placeholder="Bairro" formControlName="bairro" [ngClass]="validacaoCampo('endereco.bairro')">
+          <label for="bairro">Bairro</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="rua" placeholder="Rua" formControlName="rua" [ngClass]="validacaoCampo('endereco.rua')">
+          <label for="rua">Rua</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row g-3">
+
+      <div class="col-md">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="numero" placeholder="Número" formControlName="numero" [ngClass]="validacaoCampo('endereco.numero')">
+          <label for="numero">Número</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="complemento" placeholder="Complemento"
+            formControlName="complemento" [ngClass]="validacaoCampo('endereco.complemento')">
+          <label for="complemento">Complemento</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr>
+  <h4>Login</h4>
+
+  <div formGroupName="userId">
+
+    <div class="row g-3">
+
+      <div class="col-md">
+        <div class="input-group mb-3">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="username" placeholder="Usuário" formControlName="username" [ngClass]="validacaoCampo('userId.username')">
+            <label for="username">Usuário</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="password" class="form-control" id="password" placeholder="Senha" formControlName="password" [ngClass]="validacaoCampo('userId.password')">
+          <label for="senha">Senha</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center">
+    <div class="botoes">
+      <button type="submit" class="w-100 btn btn-lg" (click)="onSubmit()"><span>Cadastrar</span></button>
+    </div>
+  </div>
+
+</form>

@@ -1,0 +1,48 @@
+form {
+  margin-top: 50px;
+  margin-left:15%;
+  margin-right:15%;
+}
+
+hr {
+  margin-top: 30px;
+  margin-bottom: 25px;
+  height: 2px;
+}
+
+h4 {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+input, label {
+  font-family: "Poppins", sans-serif;
+}
+
+.botoes {
+  margin: 20px 1%;
+  border: none;
+  background-color:  #631ddc !important;
+  border-radius: 8px;
+  max-width: 280px;
+  display: inline-block;
+
+}
+
+span {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-right: 5px;
+  color: white;
+}
+
+.mensagem, #alerta-cpf{
+  color: red;
+  font-size: 15px;
+}
+
+.vagasHeader{
+  background-color:#631DDC;
+  color: #fff;
+}
