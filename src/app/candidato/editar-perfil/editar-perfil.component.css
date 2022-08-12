@@ -109,3 +109,7 @@
       color: red;
       font-size: 15px;
     }
+
+    hr, h4 {
+      color: #631DDC;
+    }

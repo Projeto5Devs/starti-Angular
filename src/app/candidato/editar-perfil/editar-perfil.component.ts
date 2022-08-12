@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CepService } from 'src/app/cadastro/services/cep-service.service';
 
@@ -8,7 +9,16 @@ import { CepService } from 'src/app/cadastro/services/cep-service.service';
 })
 export class EditarPerfilComponent implements OnInit {
 
-  constructor(private _cepService: CepService) { }
+  constructor(private _cepService: CepService, private http: HttpClient) { }
+
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  }
+
+  onSubmit(form) {
+    this.http.put('http://localhost:8080/pessoafisica/v1/${id}', JSON.stringify(form.value), this.httpOptions)
+      .subscribe(dados => console.log(dados));
+  }
 
   ngOnInit(): void {
     document.getElementById("footer").style.display = "none";

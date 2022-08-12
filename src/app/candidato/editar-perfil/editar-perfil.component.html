@@ -27,7 +27,7 @@
     <div class="vagasHeader d-flex align-items-center p-3 my-3 rounded shadow-sm">
       <h5 class="mb-0">Editar Perfil</h5>
     </div>
-    <form class="form-floating" #f="ngForm">
+    <form class="form-floating" #f="ngForm" (ngSubmit)="onSubmit(f)">
 
       <div class="row g-3">
 
@@ -208,6 +208,11 @@
       <div class="text-center">
         <div class="botoes">
           <button type="submit" class="w-100 btn btn-lg"><span>Atualizar dados</span></button>
+        </div>
+      </div>
+      <div class="text-center">
+        <div class="botoes">
+          <button type="submit" class="w-100 btn btn-lg"><span>Excluir conta</span></button>
         </div>
       </div>
 
