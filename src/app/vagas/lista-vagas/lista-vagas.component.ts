@@ -5,6 +5,8 @@ import { UserService } from 'src/app/user/user.service';
 import { Usuario } from 'src/app/user/usuario';
 import { Observable } from 'rxjs';
 import {Location} from '@angular/common';
+import { InscricaoService } from '../inscricao/inscricao.service';
+
 
 @Component({
   selector: 'app-lista-vagas',
@@ -19,18 +21,21 @@ export class ListaVagasComponent  {
   tab: number
   user$: Observable<Usuario>
   roles: string[]
+  id: number
 
   public responsiveLayout = false
 
 
 
-  constructor(private listaVagas: ListaVagasService, private formBuilder: FormBuilder, private userService:UserService, private _location: Location) {
+  constructor(private listaVagas: ListaVagasService, private formBuilder: FormBuilder, private userService:UserService, private _location: Location, private inscricao :InscricaoService) {
     this.form = this.formBuilder.group({
       vagas: ['']
     });
 
+
     this.user$ = userService.retornaUsuario()
     this.roles = userService.getRoles()
+    this.id = userService.getId()
 
     console.log(this.roles)
 
@@ -51,5 +56,17 @@ export class ListaVagasComponent  {
 
   voltar() {
     this._location.back();
+  }
+
+  inscreverVaga(idVaga:number){
+    this.inscricao.inscrever(
+      { pessoafisica: {
+         idPessoaFisica: this.id
+        },
+        vaga: {
+          id: idVaga,
+        },
+      dataInscricao: "2022-12-12"}
+      ).subscribe()
   }
 }

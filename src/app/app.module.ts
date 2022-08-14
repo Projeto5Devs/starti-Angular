@@ -1,3 +1,4 @@
+import { CandidatoService } from './candidato/service/candidato.service';
 import { LoginComponent } from './login/login.component';
 import { HomeModule } from './home/home.module';
 
@@ -42,7 +43,7 @@ import { DateAgoExamplePipe } from './pipes/date-ago-example.pipe';
     HomeModule
   ],
   exports: [FormsModule, ReactiveFormsModule],
-  providers: [CepService, FormBuilder],
+  providers: [CepService, FormBuilder, CandidatoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

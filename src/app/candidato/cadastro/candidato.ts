@@ -1,4 +1,5 @@
 export class Candidato {
+    key: number
     nome:string;
     sobrenome:string;
     dataDeNascimento: Date;
@@ -15,5 +16,5 @@ export class Candidato {
     complemento: string;
     username: string;
     password: string;
-    inscricao: Array<String>
+  
 }

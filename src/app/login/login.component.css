@@ -46,11 +46,13 @@ button:hover{
 }
 
 
-@media (max-width: 991px) {
+@media (max-width: 994px) {
 
 
   .col-lg-6{
+    margin-top: 15%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 

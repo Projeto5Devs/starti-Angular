@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
+import { NavbarService } from 'src/app/template/navbar/navbar.service';
 
 @Component({
   selector: 'app-perfil',
@@ -7,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _location: Location, public nav: NavbarService) { }
 
   ngOnInit(): void {
-    document.getElementById("footer").style.display = "none";
-    document.querySelector("nav").style.display = "none";
+    this.nav.hide();
+    
+  }
+
+  voltar() {
+    this._location.back();
+    this.nav.show()
   }
 
 }

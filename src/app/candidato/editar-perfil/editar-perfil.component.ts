@@ -1,6 +1,10 @@
+import { CandidatoService } from './../service/candidato.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CepService } from 'src/app/cadastro/services/cep-service.service';
+import {Location} from '@angular/common';
+import { NavbarService } from 'src/app/template/navbar/navbar.service';
+import { Candidato } from '../cadastro/candidato';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -9,7 +13,7 @@ import { CepService } from 'src/app/cadastro/services/cep-service.service';
 })
 export class EditarPerfilComponent implements OnInit {
 
-  constructor(private _cepService: CepService, private http: HttpClient) { }
+  constructor(private _cepService: CepService, private http: HttpClient, private _location: Location, public nav: NavbarService, private candidato: CandidatoService) { }
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -21,8 +25,8 @@ export class EditarPerfilComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    document.getElementById("footer").style.display = "none";
-    document.querySelector("nav").style.display = "none";
+    this.nav.hide();
+    console.log(this.candidato.consultarCandidato())
   }
 
   buscarCep(valor, form) {
@@ -84,6 +88,11 @@ export class EditarPerfilComponent implements OnInit {
     } else {
       document.getElementById('alerta-cpf').style.display = 'block';
     }
+  }
+
+  voltar() {
+    this._location.back();
+    this.nav.show();
   }
 
 }

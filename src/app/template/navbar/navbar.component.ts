@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
 import { Usuario } from 'src/app/user/usuario';
+import { NavbarService } from './navbar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,7 @@ export class NavbarComponent {
   public responsiveLayout = false
   roles: string[]
 
-  constructor(private userService:UserService, private router: Router) {
+  constructor(private userService:UserService, private router: Router, public nav: NavbarService) {
     this.user$ = userService.retornaUsuario()
     this.roles = userService.getRoles()
   }

@@ -10,9 +10,17 @@
           As melhores vagas para os profissionais que querem iniciar na carreira
           Tech
         </h2>
-        <div>
-          <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        <div *ngIf="user$ | async as user; else comeceAgora">
+          <a href="/vagas" class="btn-get-started scrollto">Nossas Vagas</a>
         </div>
+
+        <ng-template #comeceAgora>
+          <div>
+            <a href="/cadastro" class="btn-get-started scrollto">Comece Agora</a>
+          </div>
+
+        </ng-template>
+
       </div>
       <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img">
         <img src="assets/img/hero-img.png" class="img-fluid animated" alt="" />
@@ -100,7 +108,7 @@
               {{ vagas[i].descricao }}
             </p>
             <a href="/vagas" class="read-more"
-              ><span>Read More </span> <i class="fas fa-long-arrow-right"></i
+              ><span>Saiba Mais </span> <i class="fas fa-long-arrow-right"></i
             ></a>
           </div>
         </div>
@@ -243,7 +251,7 @@
               href="#"
               class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center"
             >
-              <span>Read More</span>
+              <span>Saiba Mais</span>
               <i class="fas fa-long-arrow-right"></i>
             </a>
           </div>
@@ -267,7 +275,7 @@
   <div class="container">
     <div class="section-title">
       <h2>A Equipe</h2>
-      <h3>Our Hardworking <span>Team</span></h3>
+      <h3>Nossa Equipe Esforçada</h3>
       <p>
         Nossa base estratégica de negócios tem como objetivo principal conectar pessoas e empresas, facilitando a busca por vaga e candidato.
       </p>

@@ -3,6 +3,7 @@ import { UserService } from './../user/user.service';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NavbarService } from '../template/navbar/navbar.service';
 
 
 
@@ -11,7 +12,7 @@ import { Injectable } from '@angular/core';
 })
 export class LoginService {
 
-  constructor(private httpClient : HttpClient, private userService: UserService, private router: Router) {
+  constructor(private httpClient : HttpClient, private userService: UserService, private router: Router, private nav: NavbarService) {
   }
 
   login(usuario:string, senha:string) {
@@ -22,7 +23,7 @@ export class LoginService {
       let token = JSON.parse(JSON.stringify(data)).token
       this.userService.salvaToken(token)
       this.router.navigate([''])
-
+      this.nav.show()
     },
       (error) => {
         console.error("Usuário ou senha inválido")

@@ -87,7 +87,6 @@
           Voltar
         </a>
       </div>
-
     </div>
   </div>
   <div class="col-lg-7 listaVagas mb-5 mt-5">
@@ -140,6 +139,7 @@
                       id="btn"
                       class="candidatura"
                       *ngIf="role === 'ROLE_USER_PF'"
+                      (click)="inscreverVaga(vagas[i].key)"
                     >
                       Candidatar-se
                     </button>

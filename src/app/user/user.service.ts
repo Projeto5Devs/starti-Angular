@@ -14,6 +14,7 @@ export class UserService {
   private userSubject = new BehaviorSubject<Usuario>(null)
   private username: string
   private roles: string[]
+  private userId: number
 
   constructor(private tokenService: TokenService) {
     this.tokenService.possuiToken() && this.decodificaJWT();
@@ -23,7 +24,8 @@ export class UserService {
     const token = this.tokenService.retornaToken()
     const usuario = jwtDecode(token) as Usuario
     this.username = usuario.sub;
-    this.roles = usuario.roles
+    this.roles = usuario.roles;
+    this.userId = usuario.id;
     this.userSubject.next(usuario)
     console.log(this.roles)
     console.log(usuario)
@@ -50,6 +52,10 @@ export class UserService {
 
   getUsername() {
     return this.username;
+  }
+
+  getId(){
+    return this.userId;
   }
 
   getRoles(){

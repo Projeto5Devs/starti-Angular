@@ -40,6 +40,7 @@ export class CadastroComponent implements OnInit {
         password: [null, Validators.required]
       })
     });
+
   }
 
   onSubmit() {
