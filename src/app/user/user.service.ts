@@ -26,6 +26,7 @@ export class UserService {
     this.roles = usuario.roles
     this.userSubject.next(usuario)
     console.log(this.roles)
+    console.log(usuario)
   }
 
   retornaUsuario(){

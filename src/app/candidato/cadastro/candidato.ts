@@ -15,4 +15,5 @@ export class Candidato {
     complemento: string;
     username: string;
     password: string;
+    inscricao: Array<String>
 }

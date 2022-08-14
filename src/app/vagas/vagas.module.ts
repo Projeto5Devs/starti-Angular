@@ -13,14 +13,14 @@ import { DateAgoExamplePipe } from '../pipes/date-ago-example.pipe';
   declarations: [
     ListaVagasComponent,
     CadastroVagasComponent,
-    DateAgoExamplePipe
+    DateAgoExamplePipe,
   ],
   imports: [
     CommonModule,
     VagasRoutingModule,
     ReactiveFormsModule,
     MensagemModule,
-   
+
   ]
 })
 export class VagasModule { }

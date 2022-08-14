@@ -15,4 +15,5 @@ export class Empresa {
   complemento: string;
   username: string;
   password: string;
+  roles: Array<string>;
 }

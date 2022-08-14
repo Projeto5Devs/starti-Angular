@@ -12,7 +12,7 @@ export class EmpresaService {
   }
 
   cadastrarEmpresa(empresa: Empresa){
-    return this._http.post<Empresa>('http://localhost:8080/api/empresas/v1', empresa);
+    return this._http.post<Empresa>('http://localhost:8080/empresas/v1', empresa);
   }
 
 }
