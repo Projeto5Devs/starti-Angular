@@ -46,6 +46,7 @@ export class CadastroComponent implements OnInit {
   onSubmit() {
     if (this.formulario.valid) {
       this.candidatoService.cadastrarCandidato(this.formulario.value).subscribe(response => console.log(response));
+      window.location.href="http://localhost:4200/cadastro/candidato";
     } else {
       this.verificaValidacaoForm(this.formulario);
     }
