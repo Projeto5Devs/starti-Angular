@@ -1,5 +1,5 @@
 import { Candidato } from '../cadastro/candidato';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -12,6 +12,10 @@ export class CandidatoService {
 
   cadastrarCandidato(candidato: Candidato){
     return this._http.post<Candidato>('http://localhost:8080/pessoafisica/v1', candidato);
+  }
+
+  editarCandidato(candidato: Candidato){
+    return this._http.put<Candidato>(`http://localhost:8080/pessoafisica/v1`, candidato);
   }
 
   consultarCandidato(){
