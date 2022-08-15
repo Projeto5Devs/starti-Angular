@@ -34,8 +34,11 @@ export class EditarPerfilComponent implements OnInit {
   }
 
   onDelete() {
-    console.log('Deletando')
-    console.log(this.idPessoaFisica)
+    console.log('Deletando');
+    console.log(this.idPessoaFisica);
+    this.candidatoService.deletarPorIdCandidato(this.idPessoaFisica).subscribe(response => console.log(response));
+    window.location.href="http://localhost:4200/";
+    this.userService.logout();
   }
 
   ngOnInit(): void {
@@ -140,7 +143,6 @@ export class EditarPerfilComponent implements OnInit {
       'is-valid': this.formulario.get(campo).valid && this.formulario.get(campo).touched,
     }
   }
-
 
   voltar() {
     this._location.back();

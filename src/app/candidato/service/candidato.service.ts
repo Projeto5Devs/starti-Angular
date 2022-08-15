@@ -32,5 +32,9 @@ export class CandidatoService {
     return this._http.get<Candidato>(`http://localhost:8080/pessoafisica/v1/usuario/${id}`)
   }
 
+  deletarPorIdCandidato(id: number) {
+    return this._http.delete(`http://localhost:8080/pessoafisica/v1/${id}`);
+  }
+
 
 }
