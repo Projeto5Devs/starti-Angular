@@ -16,5 +16,4 @@ export class Candidato {
     complemento: string;
     username: string;
     password: string;
-  
 }

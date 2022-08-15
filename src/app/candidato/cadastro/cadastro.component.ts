@@ -37,7 +37,7 @@ export class CadastroComponent implements OnInit {
       }),
       userId: this.formBuilder.group({
         username: [null, Validators.required],
-        password: [null, Validators.required]
+        password: [null, Validators.required],
       })
     });
 

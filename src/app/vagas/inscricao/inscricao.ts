@@ -4,5 +4,5 @@ export interface Inscricao {
   vaga: {
     id: number,
   },
-  dataInscricao: "2022-12-12"
+  dataInscricao: "2022-12-12",
 }

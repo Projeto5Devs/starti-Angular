@@ -6,6 +6,7 @@ import { Usuario } from 'src/app/user/usuario';
 import { Observable } from 'rxjs';
 import {Location} from '@angular/common';
 import { InscricaoService } from '../inscricao/inscricao.service';
+import { CandidatoService } from 'src/app/candidato/service/candidato.service';
 
 
 @Component({
@@ -22,12 +23,11 @@ export class ListaVagasComponent  {
   user$: Observable<Usuario>
   roles: string[]
   id: number
+  idPessoaFisica: number
 
   public responsiveLayout = false
 
-
-
-  constructor(private listaVagas: ListaVagasService, private formBuilder: FormBuilder, private userService:UserService, private _location: Location, private inscricao :InscricaoService) {
+  constructor(private listaVagas: ListaVagasService, private formBuilder: FormBuilder, private userService:UserService, private _location: Location, private inscricao :InscricaoService, private candidato: CandidatoService) {
     this.form = this.formBuilder.group({
       vagas: ['']
     });
@@ -37,7 +37,9 @@ export class ListaVagasComponent  {
     this.roles = userService.getRoles()
     this.id = userService.getId()
 
-    console.log(this.roles)
+    this.candidato.consultarPorId(this.id).subscribe((data) => {
+      this.idPessoaFisica = data['idPessoaFisica']
+    })
 
     const observable = this.listaVagas.getEmbedded()
     observable.subscribe( vagas => {
@@ -59,9 +61,13 @@ export class ListaVagasComponent  {
   }
 
   inscreverVaga(idVaga:number){
+
+
+    console.log(this.idPessoaFisica)
+
     this.inscricao.inscrever(
       { pessoafisica: {
-         idPessoaFisica: this.id
+         idPessoaFisica: this.idPessoaFisica
         },
         vaga: {
           id: idVaga,

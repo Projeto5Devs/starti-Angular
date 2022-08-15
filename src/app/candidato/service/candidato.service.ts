@@ -24,7 +24,9 @@ export class CandidatoService {
     );
   }
 
-
+  consultarPorId(id: number){
+    return this._http.get<Candidato>(`http://localhost:8080/pessoafisica/v1/usuario/${id}`)
+  }
 
 
 }

@@ -33,53 +33,35 @@
     >
       <h5 class="mb-0">Minhas Candidaturas</h5>
     </div>
-    <div class="list-group w-auto">
-      <a
-        href="#"
-        class="list-group-item list-group-item-action d-flex gap-3 py-3"
-        aria-current="true"
-      >
-        <img
-          src="https://github.com/twbs.png"
-          alt="twbs"
-          width="32"
-          height="32"
-          class="rounded-circle flex-shrink-0"
-        />
-        <div class="d-flex gap-2 w-100 justify-content-between">
-          <div>
-            <h6 class="mb-0">Desenvolvimento Web Full-Stack</h6>
-            <p class="mb-0 opacity-75">Empresa xxxxxx</p>
-            <button id="btn">Saber mais</button>
-            <button id="btn">Remover candidatura</button>
-          </div>
-          <small class="opacity-50 text-nowrap">now</small>
+
+    <form [formGroup]="form">
+      <div *ngFor="let vaga of vagas; let i = index">
+        <div class="list-group w-auto">
+          <span
+            class="list-group-item list-group-item-action d-flex gap-3 py-3 mb-2"
+            aria-current="true"
+          >
+            <img
+              src="https://github.com/twbs.png"
+              alt="twbs"
+              width="32"
+              height="32"
+              class="rounded-circle flex-shrink-0"
+            />
+            <div class="d-flex gap-2 w-100 justify-content-between">
+              <div>
+                <h5 class="mb-1">
+                  Empresa: {{ vagas[i].vaga.empresa.nomeFantasia }}
+                </h5>
+                <h6>{{ vagas[i].vaga.cargo }}</h6>
+                <p class="mb-2 opacity-75">{{ vagas[i].vaga.descricao }}</p>
+                <button id="btn">Saber mais</button>
+                <button id="btn" (click)="remover(vagas[i].vaga.id)">Remover candidatura</button>
+              </div>
+            </div>
+          </span>
         </div>
-      </a>
-    </div>
-    <div class="list-group w-auto">
-      <a
-        href="#"
-        class="list-group-item list-group-item-action d-flex gap-3 py-3"
-        aria-current="true"
-      >
-        <img
-          src="https://github.com/twbs.png"
-          alt="twbs"
-          width="32"
-          height="32"
-          class="rounded-circle flex-shrink-0"
-        />
-        <div class="d-flex gap-2 w-100 justify-content-between">
-          <div>
-            <h6 class="mb-0">Desenvolvimento Web Full-Stack</h6>
-            <p class="mb-0 opacity-75">Empresa xxxxxx</p>
-            <button id="btn">Saber mais</button>
-            <button id="btn">Remover candidatura</button>
-          </div>
-          <small class="opacity-50 text-nowrap">now</small>
-        </div>
-      </a>
-    </div>
+      </div>
+    </form>
   </div>
 </div>
