@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CadastroVagas } from './cadastro-vagas';
 import { Router } from '@angular/router';
+import {Location} from '@angular/common';
+import { NavbarService } from 'src/app/template/navbar/navbar.service';
 
 @Component({
   selector: 'app-cadastro-vagas',
@@ -13,7 +15,7 @@ export class CadastroVagasComponent implements OnInit {
 
   novaVagaForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private cadastroVaga: CadastroVagasService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private cadastroVaga: CadastroVagasService, private router: Router, private _location: Location, public nav: NavbarService) { }
 
   ngOnInit(): void {
     this.novaVagaForm = this.formBuilder.group({
@@ -32,8 +34,10 @@ export class CadastroVagasComponent implements OnInit {
       const novaVaga = this.novaVagaForm.getRawValue() as CadastroVagas
 
       this.cadastroVaga.cadastrarNovaVaga(novaVaga).subscribe(()=>{this.router.navigate([''])}, (error)=> alert('Erro'))
+  }
 
-
-
+  voltar() {
+    this._location.back();
+    this.nav.show()
   }
 }

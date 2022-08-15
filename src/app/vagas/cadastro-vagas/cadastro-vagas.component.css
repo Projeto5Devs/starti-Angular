@@ -3,7 +3,7 @@
 }
 
 form {
-  margin-top: 50px;
+  margin-top: 5px;
   margin-left:15%;
   margin-right:15%;
 }
@@ -17,6 +17,7 @@ form {
 .cancel{
   background-color:  #fff;
   border: 1px solid rgb(174, 174, 174);
+  margin-right: 10px;
 }
 
 .cancel:hover{
@@ -24,13 +25,13 @@ form {
 }
 
 .confirmar{
-  background-color:  #7e00ec;
+  background-color:  #631ddc !important;
   color: #fff;
 }
 
 .confirmar:hover{
-  background-color: #942173;
-  transition: 1s;
+    transition: 0.5s;
+    background-color:  #6e1df9 !important;
 }
 
 
@@ -42,5 +43,6 @@ form {
 input, label {
   font-family: "Poppins", sans-serif;
 }
+
 
 

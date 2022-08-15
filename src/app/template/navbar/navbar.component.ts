@@ -35,8 +35,8 @@ export class NavbarComponent {
       if(roles[i] === 'ROLE_USER_PF'){
         this.router.navigate(['/candidato']);
       }
-      if(roles[i] === 'ROLE_ADMIN'){
-        this.router.navigate(['/']);
+      if(roles[i] === 'ROLE_USER_EMPRESA'){
+        this.router.navigate(['/empresa']);
       }
     }
 
