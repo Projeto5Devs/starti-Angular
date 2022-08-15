@@ -1,11 +1,11 @@
-<div class="px-4 py-5 my-5 text-center">
-  <i class="fab fa-github fa-4x" aria-hidden="true"></i>
+<div class="px-4 py-5 mt-5 text-center">
+  <i class="fa fa-briefcase fa-4x" aria-hidden="true"></i>
   <h1 class="display-5 fw-bold">Cadastro de vagas</h1>
 </div>
 
 <div class="row d-flex justify-content-center align-items-center mb-5">
   <form
-    class="col-lg-6 formulario form"
+    class="col-lg-6 formulario form form-control-lg "
     [(formGroup)]="novaVagaForm"
     (submit)="cadastrar()"
   >
@@ -103,6 +103,13 @@
     <div class="mt-4 mb-4 d-flex justify-content-end">
       <button type="reset" class="button cancel">Cancelar</button>
       <button type="submit" class="button confirmar">Cadastrar</button>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="javascript:void(0)" (click)="voltar()">
+        <i class="fa-solid fa-circle-left"></i>
+        Voltar
+      </a>
     </div>
   </form>
 </div>

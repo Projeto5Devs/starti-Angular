@@ -1,3 +1,4 @@
+import { AlertModalService } from './../../componentes/alert-modal.service';
 import { ListaVagasService } from './lista-vagas.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -27,7 +28,7 @@ export class ListaVagasComponent  {
 
   public responsiveLayout = false
 
-  constructor(private listaVagas: ListaVagasService, private formBuilder: FormBuilder, private userService:UserService, private _location: Location, private inscricao :InscricaoService, private candidato: CandidatoService) {
+  constructor(private listaVagas: ListaVagasService, private formBuilder: FormBuilder, private userService:UserService, private _location: Location, private inscricao :InscricaoService, private candidato: CandidatoService, private alertService: AlertModalService) {
     this.form = this.formBuilder.group({
       vagas: ['']
     });
@@ -62,9 +63,6 @@ export class ListaVagasComponent  {
 
   inscreverVaga(idVaga:number){
 
-
-    console.log(this.idPessoaFisica)
-
     this.inscricao.inscrever(
       { pessoafisica: {
          idPessoaFisica: this.idPessoaFisica
@@ -73,6 +71,15 @@ export class ListaVagasComponent  {
           id: idVaga,
         },
       dataInscricao: "2022-12-12"}
-      ).subscribe()
+      ).subscribe(data => this.sucesso(), error => this.erro())
+  }
+
+
+  erro(){
+    this.alertService.showAlertDanger('Erro ao fazer a inscrição. Tente Novamente.')
+  }
+
+  sucesso(){
+    this.alertService.showAlertSuccess('Inscrição realizada com sucesso!')
   }
 }

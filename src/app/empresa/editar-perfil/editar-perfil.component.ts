@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CepService } from 'src/app/cadastro/services/cep-service.service';
+import { NavbarService } from 'src/app/template/navbar/navbar.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -8,7 +10,7 @@ import { CepService } from 'src/app/cadastro/services/cep-service.service';
 })
 export class EditarPerfilComponent implements OnInit {
 
-  constructor(private _cepService: CepService) { }
+  constructor(private _cepService: CepService, public nav: NavbarService, private _location: Location) { }
 
   ngOnInit(): void {
     document.getElementById("footer").style.display = "none";
@@ -79,6 +81,11 @@ export class EditarPerfilComponent implements OnInit {
     } else {
       document.getElementById('alerta-cnpj').style.display = 'block';
     }
+  }
+
+  voltar() {
+    this._location.back();
+    this.nav.show()
   }
 
 }

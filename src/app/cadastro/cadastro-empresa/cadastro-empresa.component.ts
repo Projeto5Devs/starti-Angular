@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-empresa',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroEmpresaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.router.navigate(['/signin']);
+    }, 6000);
   }
 
 }

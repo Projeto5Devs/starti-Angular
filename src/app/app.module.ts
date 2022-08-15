@@ -19,8 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CepService } from './cadastro/services/cep-service.service';
 import { TemplateModule } from './template/template.module';
-import { NgxScrollTopModule } from 'ngx-scrolltop';
-import { DateAgoExamplePipe } from './pipes/date-ago-example.pipe';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { AlertModalComponent } from './componentes/alert-modal/alert-modal.component';
 
 
 
@@ -28,6 +28,7 @@ import { DateAgoExamplePipe } from './pipes/date-ago-example.pipe';
   declarations: [
     AppComponent,
     LoginComponent,
+    AlertModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,8 @@ import { DateAgoExamplePipe } from './pipes/date-ago-example.pipe';
     CadastroModule,
     FormsModule,                               // <========== Add this line!
     ReactiveFormsModule,
-    HomeModule
+    HomeModule,
+    ModalModule.forRoot()
   ],
   exports: [FormsModule, ReactiveFormsModule],
   providers: [CepService, FormBuilder, CandidatoService],
