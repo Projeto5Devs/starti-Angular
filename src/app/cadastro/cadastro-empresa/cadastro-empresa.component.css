@@ -1,3 +1,10 @@
+*{
+  width:100vw;
+  height: 100vh;
+  margin: 0;
+  border: 0;
+}
+
 img {
   width: 35%;
   margin: 40px 0px 50px 0px;
@@ -6,3 +13,5 @@ img {
 h4 {
   margin: 30px;
 }
+
+

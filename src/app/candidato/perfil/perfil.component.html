@@ -56,7 +56,9 @@
                 <h6>{{ vagas[i].vaga.cargo }}</h6>
                 <p class="mb-2 opacity-75">{{ vagas[i].vaga.descricao }}</p>
                 <button id="btn">Saber mais</button>
-                <button id="btn" (click)="remover(vagas[i].vaga.id)">Remover candidatura</button>
+                <button id="btn" (click)="remover(vagas[i].vaga.id)">
+                  Remover candidatura
+                </button>
               </div>
             </div>
           </span>
@@ -65,3 +67,11 @@
     </form>
   </div>
 </div>
+
+<ng-template #deletarModal>
+  <div class="modal-body text-center">
+    <p>Deseja remover a candidatura?</p>
+    <button type=" button" class="btn btn-default mx-3" (click)="onConfirmDelete()">Sim</button>
+    <button type="button" id="btn" (click)="onDeclineDelete()">Não</button>
+  </div>
+</ng-template>

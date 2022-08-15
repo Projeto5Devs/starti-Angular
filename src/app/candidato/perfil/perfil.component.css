@@ -87,3 +87,7 @@
   background-color:#631DDC;
   color: #fff;
 }
+
+.btn-default:hover{
+  border: 1px solid #8742ff;
+}

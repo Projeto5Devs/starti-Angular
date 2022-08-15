@@ -29,6 +29,8 @@
     "jquery": "^3.6.0",
     "jwt-decode": "^3.1.2",
     "mdb-angular-ui-kit": "^2.3.0",
+    "ngx-bootstrap": "^8.0.0",
+    "ngx-modialog": "^5.0.1",
     "ngx-scrolltop": "^4.2.0",
     "ngx-useful-swiper": "^10.0.1",
     "rxjs": "~6.6.0",
