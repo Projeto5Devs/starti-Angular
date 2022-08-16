@@ -1,10 +1,11 @@
 import { CandidatoService } from './../service/candidato.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CepService } from 'src/app/cadastro/services/cep-service.service';
 import {Location} from '@angular/common';
 import { NavbarService } from 'src/app/template/navbar/navbar.service';
-import { Candidato } from '../cadastro/candidato';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -13,31 +14,75 @@ import { Candidato } from '../cadastro/candidato';
 })
 export class EditarPerfilComponent implements OnInit {
 
-  constructor(private _cepService: CepService, private http: HttpClient, private _location: Location, public nav: NavbarService, private candidato: CandidatoService) { }
+  formulario: FormGroup;
 
-  httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  id: number;
+  idPessoaFisica: number;
+
+  constructor(private formBuilder: FormBuilder, private _cepService: CepService, private http: HttpClient, private _location: Location, public nav: NavbarService, private candidato: CandidatoService, private candidatoService: CandidatoService, private userService: UserService) {
+    this.id = userService.getId();
+
+    this.candidatoService.consultarPorId(this.id).subscribe((data) => {
+      this.idPessoaFisica = data['idPessoaFisica']
+    })
+   }
+
+  onEdit() {
+    console.log('Editando')
+    console.log(this.idPessoaFisica)
+    this.candidatoService.editarCandidato(this.formulario.value).subscribe(response => console.log(response));
   }
 
-  onSubmit(form) {
-    this.http.put('http://localhost:8080/pessoafisica/v1/${id}', JSON.stringify(form.value), this.httpOptions)
-      .subscribe(dados => console.log(dados));
+  onDelete() {
+    console.log('Deletando');
+    console.log(this.idPessoaFisica);
+    this.candidatoService.deletarPorIdCandidato(this.idPessoaFisica).subscribe(response => console.log(response));
+    window.location.href="http://localhost:4200/";
+    this.userService.logout();
   }
 
   ngOnInit(): void {
+
     this.nav.hide();
-    console.log(this.candidato.consultarCandidato())
+
+    this.formulario = this.formBuilder.group({
+      key: [this.idPessoaFisica],
+      nome: [null, Validators.required],
+      sobrenome: [null, Validators.required],
+      dataDeNascimento: [null, Validators.required],
+      cpf: [null, Validators.required],
+      contato: this.formBuilder.group({
+        email: [null, [Validators.required, Validators.email]],
+        telefone: [null, Validators.required],
+        website: [null]
+      }),
+      endereco: this.formBuilder.group({
+        cep: [null, Validators.required],
+        cidade: [null, Validators.required],
+        uf: [null, Validators.required],
+        bairro: [null, Validators.required],
+        rua: [null, Validators.required],
+        numero: [null, Validators.required],
+        complemento: [null, Validators.required]
+      }),
+      userId: this.formBuilder.group({
+        username: [null, Validators.required],
+        password: [null, Validators.required],
+      })
+    });
   }
 
-  buscarCep(valor, form) {
-    this._cepService.buscarCepService(valor)
-      .subscribe((dados) => this.populaForm(dados, form));
+
+  buscarCEP() {
+    let cep = this.formulario.get('endereco.cep').value
+
+    this._cepService.buscarCepService(cep)
+      .subscribe((dados) => this.populaForm(dados));
   }
 
-  populaForm(dados, formulario) {
-    formulario.form.patchValue({
+  populaForm(dados) {
+    this.formulario.patchValue({
       endereco: {
-        cep: dados.cep,
         rua: dados.logradouro,
         bairro: dados.bairro,
         cidade: dados.localidade,
@@ -80,13 +125,22 @@ export class EditarPerfilComponent implements OnInit {
     return true;
   }
 
-  validacaoCPF(cpf) {
+  validacaoCPF() {
+    let cpf = this.formulario.get('cpf').value
+
     let resultadoValidacaoCpf = this.validaCPF(cpf);
 
     if (resultadoValidacaoCpf) {
       document.getElementById('alerta-cpf').style.display = 'none';
     } else {
       document.getElementById('alerta-cpf').style.display = 'block';
+    }
+  }
+
+  validacaoCampo(campo) {
+    return {
+      'is-invalid': !this.formulario.get(campo).valid && this.formulario.get(campo).touched,
+      'is-valid': this.formulario.get(campo).valid && this.formulario.get(campo).touched,
     }
   }
 

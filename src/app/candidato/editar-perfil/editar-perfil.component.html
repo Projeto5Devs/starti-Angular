@@ -37,24 +37,22 @@
     <div class="vagasHeader d-flex align-items-center p-3 my-3 rounded shadow-sm">
       <h5 class="mb-0">Editar Perfil</h5>
     </div>
-    <form class="form-floating" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <form [formGroup]="formulario">
 
       <div class="row g-3">
 
         <div class="col-md">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" ngModel
-              #nome="ngModel">
+            <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome"
+            [ngClass]="validacaoCampo('nome')">
             <label for="nome">Nome</label>
           </div>
         </div>
 
         <div class="col-md">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="sobrenome" placeholder="Sobrenome" name="sobrenome" ngModel
-             #sobrenome="ngModel">
+            <input type="text" class="form-control" id="sobrenome" placeholder="Sobrenome" formControlName="sobrenome" [ngClass]="validacaoCampo('sobrenome')">
             <label for="sobrenome">Sobrenome</label>
-
           </div>
         </div>
 
@@ -64,8 +62,8 @@
 
         <div class="col-md">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="cpf" placeholder="CPF" maxlength="14" name="cpf" ngModel
-              #cpf="ngModel" (blur)="validacaoCPF($event.target.value)">
+            <input type="text" class="form-control" id="cpf" placeholder="CPF" maxlength="14" formControlName="cpf"
+            (blur)="validacaoCPF()" [ngClass]="validacaoCampo('cpf')">
             <label for="cpf">CPF</label>
             <small id="alerta-cpf" style="display: none;">CPF inválido! <br></small>
             <small class="form-text text-muted">Digite no formato: 111.111.111-11</small>
@@ -75,9 +73,8 @@
         <div class="col-md">
           <div class="form-floating mb-3">
             <input type="date" class="form-control" id="datadenascimento" placeholder="Data de Nascimento"
-              name="dataDeNascimento" ngModel #dataDeNascimento="ngModel">
+              formControlName="dataDeNascimento" [ngClass]="validacaoCampo('dataDeNascimento')">
             <label for="datadenascimento">Data de Nascimento</label>
-
           </div>
         </div>
 
@@ -86,57 +83,48 @@
       <hr>
       <h4>Contato</h4>
 
-      <div ngModelGroup="contato">
-
+      <div formGroupName="contato">
         <div class="form-floating mb-3">
-          <input type="tel" class="form-control" id="telefone" placeholder="Telefone" name="telefone" ngModel
-            #telefone="ngModel">
+          <input type="tel" class="form-control" id="telefone" placeholder="Telefone" formControlName="telefone"
+          [ngClass]="validacaoCampo('contato.telefone')">
           <label for="telefone">Telefone</label>
-
         </div>
 
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" ngModel email #email="ngModel">
+          <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email" [ngClass]="validacaoCampo('contato.email')">
           <label for="email">Email</label>
-
         </div>
 
         <div class="form-floating mb-3">
-          <input type="url" class="form-control" id="website" placeholder="Website" ngModel name="website"
-            #website="ngModel">
+          <input type="url" class="form-control" id="website" placeholder="Website" formControlName="website">
           <label for="website">Website</label>
         </div>
-
       </div>
 
       <hr>
       <h4>Endereço</h4>
 
-      <div ngModelGroup="endereco">
+      <div formGroupName="endereco">
 
         <div class="row g-3">
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="cep" placeholder="CEP" maxlength="9"
-                (blur)="buscarCep($event.target.value, f)" name="cep" ngModel #cep="ngModel">
+              <input type="text" class="form-control" id="cep" placeholder="CEP" formControlName="cep" (blur)="buscarCEP()" [ngClass]="validacaoCampo('endereco.cep')">
               <label for="cep">CEP</label>
-
             </div>
           </div>
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="cidade" placeholder="Cidade" name="cidade" ngModel
-                #cidade="ngModel">
+              <input type="text" class="form-control" id="cidade" placeholder="Cidade" formControlName="cidade" [ngClass]="validacaoCampo('endereco.cidade')">
               <label for="cidade">Cidade</label>
             </div>
           </div>
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2" name="uf" ngModel
-                #uf="ngModel">
+              <input type="text" class="form-control" id="uf" placeholder="UF" maxlength="2" formControlName="uf" [ngClass]="validacaoCampo('endereco.uf')">
               <label for="uf">UF</label>
             </div>
           </div>
@@ -147,15 +135,14 @@
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="bairro" placeholder="Bairro" name="bairro" ngModel
-                #bairro="ngModel">
+              <input type="text" class="form-control" id="bairro" placeholder="Bairro" formControlName="bairro" [ngClass]="validacaoCampo('endereco.bairro')">
               <label for="bairro">Bairro</label>
             </div>
           </div>
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="rua" placeholder="Rua" name="rua" ngModel #rua="ngModel">
+              <input type="text" class="form-control" id="rua" placeholder="Rua" formControlName="rua" [ngClass]="validacaoCampo('endereco.rua')">
               <label for="rua">Rua</label>
             </div>
           </div>
@@ -166,19 +153,16 @@
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="numero" placeholder="Número" name="numero" ngModel
-                #numero="ngModel">
+              <input type="text" class="form-control" id="numero" placeholder="Número" formControlName="numero" [ngClass]="validacaoCampo('endereco.numero')">
               <label for="numero">Número</label>
-
             </div>
           </div>
 
           <div class="col-md">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="complemento" placeholder="Complemento" name="complemento"
-                ngModel #complemento="ngModel">
+              <input type="text" class="form-control" id="complemento" placeholder="Complemento"
+                formControlName="complemento" [ngClass]="validacaoCampo('endereco.complemento')">
               <label for="complemento">Complemento</label>
-
             </div>
           </div>
 
@@ -188,27 +172,23 @@
       <hr>
       <h4>Login</h4>
 
-      <div ngModelGroup="usuario">
+      <div formGroupName="userId">
 
         <div class="row g-3">
 
           <div class="col-md">
             <div class="input-group mb-3">
               <div class="form-floating">
-                <input type="text" class="form-control" id="username" placeholder="Username" name="username" ngModel
-                  #username="ngModel">
-                <label for="username">Username</label>
-
+                <input type="text" class="form-control" id="username" placeholder="Usuário" formControlName="username" [ngClass]="validacaoCampo('userId.username')">
+                <label for="username">Usuário</label>
               </div>
             </div>
           </div>
 
           <div class="col-md">
             <div class="form-floating">
-              <input type="password" class="form-control" id="password" placeholder="Senha" name="password" ngModel
-                #password="ngModel">
+              <input type="password" class="form-control" id="password" placeholder="Senha" formControlName="password" [ngClass]="validacaoCampo('userId.password')">
               <label for="senha">Senha</label>
-
             </div>
           </div>
 
@@ -217,16 +197,58 @@
 
       <div class="text-center">
         <div class="botoes">
-          <button type="submit" class="w-100 btn btn-lg"><span>Atualizar dados</span></button>
+          <button type="submit" class="w-100 btn btn-lg" data-bs-toggle="modal" data-bs-target="#atualizar"><span>Atualizar dados</span></button>
         </div>
       </div>
       <div class="text-center">
         <div class="botoes">
-          <button type="submit" class="w-100 btn btn-lg"><span>Excluir conta</span></button>
+          <button type="submit" class="w-100 btn btn-lg" data-bs-toggle="modal" data-bs-target="#deletar"><span>Excluir conta</span></button>
         </div>
       </div>
 
     </form>
 
+
+
+
+
+  </div>
+</div>
+
+<!-- Atualizar -->
+<div class="modal fade" id="atualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Atualizar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Tem certeza que deseja atualizar seus dados?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" (click)="onEdit()">Atualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deletar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Deletar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Tem certeza que deseja excluir sua conta?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" (click)="onDelete()">Excluir conta</button>
+      </div>
+    </div>
   </div>
 </div>

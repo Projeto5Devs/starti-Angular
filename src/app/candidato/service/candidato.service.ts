@@ -1,5 +1,5 @@
 import { Candidato } from '../cadastro/candidato';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -14,6 +14,10 @@ export class CandidatoService {
     return this._http.post<Candidato>('http://localhost:8080/pessoafisica/v1', candidato);
   }
 
+  editarCandidato(candidato: Candidato){
+    return this._http.put<Candidato>(`http://localhost:8080/pessoafisica/v1`, candidato);
+  }
+
   consultarCandidato(){
     return this._http.get<Candidato>('http://localhost:8080/pessoafisica/v1').subscribe((data) => {
       console.log(data)
@@ -26,6 +30,10 @@ export class CandidatoService {
 
   consultarPorId(id: number){
     return this._http.get<Candidato>(`http://localhost:8080/pessoafisica/v1/usuario/${id}`)
+  }
+
+  deletarPorIdCandidato(id: number) {
+    return this._http.delete(`http://localhost:8080/pessoafisica/v1/${id}`);
   }
 
 
