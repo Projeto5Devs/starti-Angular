@@ -2,91 +2,91 @@
   <div class="col-lg-4">
     <div class="list-group sidebar-search">
       <div class="sidebar">
-        <div class="sidebar-item search-form">
-          <h5 class="title">Pesquisar palavra-chave</h5>
-          <input type="text" />
-          <button type="submit" id="btn"><i class="fa fa-search"></i></button>
+        <div class="sidebar-item search-form mb-2">
+          <h5 class="title">Pesquisar Cargo</h5>
+          <form [formGroup]="formularioCargo">
+            <input type="text" formControlName="cargo" />
+            <button type="submit" id="btn" (click)="buscar()">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
         </div>
+        <form [formGroup]="formulario">
+          <fieldset>
+            <h5 class="title">Tipo</h5>
+            <div class="form-check">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="tipo"
+                id="radioEstagio"
+                value="Estagio"
+                formControlName="tipo"
+              />
+              <label for="radioEstagio">Estágio</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="tipo"
+                id="radioJunior"
+                value="Júnior"
+                formControlName="tipo"
+              />
+              <label for="radioJunior">Júnior</label>
+            </div>
+          </fieldset>
 
-        <fieldset>
-          <h5 class="title">Tipo da vaga</h5>
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              name="tipoVaga"
-              id="checkEstagio"
-              value="Estagio"
-            />
-            <label for="radioEstagio">Estágio</label>
-          </div>
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              name="tipo"
-              id="radioJunior"
-              value="Júnior"
-            />
-            <label for="radioJunior">Júnior</label>
-          </div>
-        </fieldset>
+          <fieldset>
+            <h5 class="title">Modalidade da vaga</h5>
+            <div class="form-check">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="modalidade"
+                id="Home-Office"
+                value="Home-Office"
+                formControlName="modalidade"
+              />
+              <label for="Home-Office">Home Office</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="modalidade"
+                id="Presencial"
+                value="Presencial"
+                formControlName="modalidade"
+              />
+              <label for="Presencial">Presencial</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="modalidade"
+                id="Híbrido"
+                value="Híbrido"
+                formControlName="modalidade"
+              />
+              <label for="Híbrido">Híbrido</label>
+            </div>
+          </fieldset>
 
-        <fieldset>
-          <h5 class="title">Modalidade da vaga</h5>
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              name="tipoVaga"
-              id="checkEstagio"
-              value="Estagio"
-            />
-            <label for="radioEstagio">Home Office</label>
+          <div class="slider mt-5 text-center">
+            <button class="mx-2" (click)="limpar()" id="btn">Limpar</button>
+            <button type="submit" (click)="filtrar()" id="btn">Filtrar</button>
           </div>
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              name="tipo"
-              id="radioJunior"
-              value="Júnior"
-            />
-            <label for="radioJunior">Presencial</label>
-          </div>
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              name="tipo"
-              id="radioJunior"
-              value="Júnior"
-            />
-            <label for="radioJunior">Híbrido</label>
-          </div>
-        </fieldset>
-        <div class="slider">
-          <h5 class="title">Salário</h5>
-          <input
-            type="range"
-            name="salario"
-            id="salario"
-            class="form-control-range"
-            min="0"
-            max="10000"
-            value="10000"
-            onChange="document.getElementById('rangeval').innerText = document.getElementById('salario').value"
-          />
-          Até R$<span id="rangeval">10.000</span>
+        </form>
+
+        <div class="voltar mt-5 text-center">
+          <i class="fa-solid fa-circle-left"></i>
+          <a class="linkVoltar" href="javascript:void(0)" (click)="voltar()">
+            Voltar
+          </a>
         </div>
-      </div>
-
-      <div class="voltar mt-5">
-        <i class="fa-solid fa-circle-left"></i>
-        <a class="linkVoltar" href="javascript:void(0)" (click)="voltar()">
-
-          Voltar
-        </a>
       </div>
     </div>
   </div>

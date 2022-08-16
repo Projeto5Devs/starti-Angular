@@ -15,4 +15,20 @@ export class ListaVagasService {
     return this.http.get('http://localhost:8080/vaga/v1');
   }
 
+  buscarPorTipoModalidade(tipo:string, modalidade:string) : Observable<any>{
+    return this.http.get(`http://localhost:8080/vaga/v1/buscarCargoEModalidade?tipo=${tipo}&modalidade=${modalidade}`)
+  }
+
+  buscarPorModalidade(modalidade:string) : Observable<any>{
+    return this.http.get(`http://localhost:8080/vaga/v1/buscarPorModalidade/${modalidade}`)
+  }
+
+  buscarPorTipo(tipo:string) : Observable<any>{
+    return this.http.get(`http://localhost:8080/vaga/v1/buscarPorTipo/${tipo}`)
+  }
+
+  buscarPorCargo(cargo:string) : Observable<any>{
+    return this.http.get(`http://localhost:8080/vaga/v1/buscarPorCargo/${cargo}`)
+  }
+
 }

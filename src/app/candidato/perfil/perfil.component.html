@@ -55,10 +55,35 @@
                 </h5>
                 <h6>{{ vagas[i].vaga.cargo }}</h6>
                 <p class="mb-2 opacity-75">{{ vagas[i].vaga.descricao }}</p>
-                <button id="btn">Saber mais</button>
+                <button
+                  id="btn"
+                  data-bs-toggle="collapse"
+                  [attr.data-bs-target]="'#collapseExample' + i"
+                >
+                  Saber mais
+                </button>
                 <button id="btn" (click)="remover(vagas[i].vaga.id)">
                   Remover candidatura
                 </button>
+                <div class="collapse mt-3" id="collapseExample{{ i }}">
+                  <div class="card card-body">
+                    <p>
+                      <small>Tipo: {{ vagas[i].vaga.tipo }} </small>
+                    </p>
+                    <p>
+                      <small>Salário: R${{ vagas[i].vaga.salario }} </small>
+                    </p>
+                    <p>
+                      <small>Modalidade: {{ vagas[i].vaga.modalidade }} </small>
+                    </p>
+                    <p>
+                      <small
+                        >Prazo final para candidatura:
+                        {{ vagas[i].vaga.prazo | date: "dd/MM/yyyy" }}</small
+                      >
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </span>
@@ -71,7 +96,13 @@
 <ng-template #deletarModal>
   <div class="modal-body text-center">
     <p>Deseja remover a candidatura?</p>
-    <button type=" button" class="btn btn-default mx-3" (click)="onConfirmDelete()">Sim</button>
+    <button
+      type=" button"
+      class="btn btn-default mx-3"
+      (click)="onConfirmDelete()"
+    >
+      Sim
+    </button>
     <button type="button" id="btn" (click)="onDeclineDelete()">Não</button>
   </div>
 </ng-template>

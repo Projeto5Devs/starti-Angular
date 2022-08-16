@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import {Location} from '@angular/common';
 import { InscricaoService } from '../inscricao/inscricao.service';
 import { CandidatoService } from 'src/app/candidato/service/candidato.service';
+import { CadastroVagas } from '../cadastro-vagas/cadastro-vagas';
 
 
 @Component({
@@ -17,7 +18,9 @@ import { CandidatoService } from 'src/app/candidato/service/candidato.service';
 })
 export class ListaVagasComponent  {
 
+  formularioCargo: FormGroup
   form: FormGroup;
+  formulario: FormGroup
   vagas: []
   currentIndex = -1;
   tab: number
@@ -26,6 +29,7 @@ export class ListaVagasComponent  {
   id: number
   idPessoaFisica: number
 
+
   public responsiveLayout = false
 
   constructor(private listaVagas: ListaVagasService, private formBuilder: FormBuilder, private userService:UserService, private _location: Location, private inscricao :InscricaoService, private candidato: CandidatoService, private alertService: AlertModalService) {
@@ -33,6 +37,14 @@ export class ListaVagasComponent  {
       vagas: ['']
     });
 
+    this.formulario = this.formBuilder.group({
+      modalidade: [''],
+      tipo:['']
+    });
+
+    this.formularioCargo = this.formBuilder.group({
+      cargo: ['']
+    });
 
     this.user$ = userService.retornaUsuario()
     this.roles = userService.getRoles()
@@ -82,4 +94,48 @@ export class ListaVagasComponent  {
   sucesso(){
     this.alertService.showAlertSuccess('Inscrição realizada com sucesso!')
   }
+
+  filtrar(){
+    const novaVaga = this.formulario.getRawValue() as CadastroVagas
+    let tipo = novaVaga.tipo
+    let modalidade = novaVaga.modalidade
+
+    if(!tipo && modalidade){
+      const observable = this.listaVagas.buscarPorModalidade(modalidade)
+    observable.subscribe( vagas => {
+      this.vagas = vagas._embedded.vagaVOList
+      } );
+    }
+
+    if(tipo && !modalidade){
+      const observable = this.listaVagas.buscarPorTipo(tipo)
+    observable.subscribe( vagas => {
+      this.vagas = vagas._embedded.vagaVOList
+      } );
+    }
+
+
+    const observable = this.listaVagas.buscarPorTipoModalidade(tipo, novaVaga.modalidade)
+    observable.subscribe( vagas => {
+      this.vagas = vagas
+      } );
+  }
+
+  limpar(){
+    this.formulario.get('modalidade').reset();
+    this.formulario.get('tipo').reset();
+    this.formularioCargo.get('cargo').reset()
+  }
+
+  buscar(){
+    const novaVaga = this.formularioCargo.getRawValue() as CadastroVagas
+
+    const observable = this.listaVagas.buscarPorCargo(novaVaga.cargo)
+    observable.subscribe(vagas => {
+      this.vagas = vagas._embedded.vagaVOList
+      } );
+  }
+
+
+
 }
