@@ -8,6 +8,7 @@ import { CadastroVagasComponent } from './cadastro-vagas/cadastro-vagas.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { DateAgoExamplePipe } from '../pipes/date-ago-example.pipe';
 import { CandidatoService } from '../candidato/service/candidato.service';
+import { EditarVagasComponent } from './editar-vagas/editar-vagas.component';
 
 
 
@@ -16,6 +17,7 @@ import { CandidatoService } from '../candidato/service/candidato.service';
     ListaVagasComponent,
     CadastroVagasComponent,
     DateAgoExamplePipe,
+    EditarVagasComponent,
   ],
   imports: [
     CommonModule,

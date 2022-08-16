@@ -15,4 +15,7 @@ export class EmpresaService {
     return this._http.post<Empresa>('http://localhost:8080/empresas/v1', empresa);
   }
 
+  consultarPorId(id: number){
+    return this._http.get<Empresa>(`http://localhost:8080/empresas/v1/usuario/${id}`)
+  }
 }

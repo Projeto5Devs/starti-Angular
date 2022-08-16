@@ -23,48 +23,56 @@
           </a>
         </li>
       </ul>
-
     </div>
   </nav>
 
-
   <!-- Page Content  -->
   <div id="content" class="p-4 p-md-5 pt-5">
-    <div class="vagasHeader d-flex align-items-center p-3 my-3 rounded shadow-sm">
-      <h5 class="mb-0">Minhas Vagas</h5>
+    <div
+      class="vagasHeader d-flex align-items-center p-3 my-3 rounded shadow-sm"
+    >
+      <h5 class="mb-0">Vagas Criadas</h5>
     </div>
 
-    <a href="/vagas/cadastrarvaga" ><button id="btn" class="mb-2"> <i class="fa-solid fa-plus"></i> Nova vaga</button></a>
+    <a href="/vagas/cadastrarvaga"
+      ><button id="btn" class="mb-2">
+        <i class="fa-solid fa-plus"></i> Nova vaga
+      </button></a
+    >
 
-
-
-    <div class="list-group w-auto">
-      <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-        <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0" />
-        <div class="d-flex gap-2 w-100 justify-content-between">
-          <div>
-            <h6 class="mb-0">Desenvolvimento Web Full-Stack</h6>
-            <p class="mb-0 opacity-75">Empresa xxxxxx</p>
-            <button id="btn">Editar vaga</button>
-            <button id="btn">Remover vaga</button>
-          </div>
-          <small class="opacity-50 text-nowrap">now</small>
+    <form [formGroup]="form">
+      <div *ngFor="let vaga of vagas; let i = index">
+        <div class="list-group w-auto">
+          <span
+            class="list-group-item list-group-item-action d-flex gap-3 py-3 mb-2"
+            aria-current="true"
+          >
+            <img
+              src="https://github.com/twbs.png"
+              alt="twbs"
+              width="32"
+              height="32"
+              class="rounded-circle flex-shrink-0"
+            />
+            <div class="d-flex gap-2 w-100 justify-content-between">
+              <div>
+                <h5 class="mb-1">Cargo: {{ vagas[i].cargo }}</h5>
+                <h6>{{ vagas[i].modalidade }}</h6>
+                <p class="mb-2 opacity-75">{{ vagas[i].descricao }}</p>
+                <p>
+                  <small style="color: red"
+                    >Prazo final para candidatura:
+                    {{ vagas[i].prazo | date: "dd/MM/yyyy" }}</small
+                  >
+                </p>
+                <button id="btn" (click)="remover(vagas[i].id)">
+                  Remover Vaga
+                </button>
+              </div>
+            </div>
+          </span>
         </div>
-      </a>
-    </div>
-    <div class="list-group w-auto">
-      <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-        <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0" />
-        <div class="d-flex gap-2 w-100 justify-content-between">
-          <div>
-            <h6 class="mb-0">Desenvolvimento Web Full-Stack</h6>
-            <p class="mb-0 opacity-75">Empresa xxxxxx</p>
-            <button id="btn">Editar vaga</button>
-            <button id="btn">Remover vaga</button>
-          </div>
-          <small class="opacity-50 text-nowrap">now</small>
-        </div>
-      </a>
-    </div>
+      </div>
+    </form>
   </div>
 </div>

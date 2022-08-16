@@ -6,7 +6,7 @@
 <div class="row d-flex justify-content-center align-items-center mb-5">
   <form
     class="col-lg-6 formulario form form-control-lg "
-    [(formGroup)]="novaVagaForm"
+    [(formGroup)]="novaVagaForm" *ngIf="isDone"
     (submit)="cadastrar()"
   >
     <label for="cargo" class="mb-2">Cargo </label>

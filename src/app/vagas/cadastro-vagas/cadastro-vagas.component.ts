@@ -5,6 +5,9 @@ import { CadastroVagas } from './cadastro-vagas';
 import { Router } from '@angular/router';
 import {Location} from '@angular/common';
 import { NavbarService } from 'src/app/template/navbar/navbar.service';
+import { UserService } from 'src/app/user/user.service';
+import { EmpresaService } from 'src/app/empresa/empresa.service';
+import { AlertModalService } from 'src/app/componentes/alert-modal.service';
 
 @Component({
   selector: 'app-cadastro-vagas',
@@ -14,12 +17,29 @@ import { NavbarService } from 'src/app/template/navbar/navbar.service';
 export class CadastroVagasComponent implements OnInit {
 
   novaVagaForm: FormGroup;
+  idUser: number;
+  idEmpresa: number;
+  isDone: boolean
 
-  constructor(private formBuilder: FormBuilder, private cadastroVaga: CadastroVagasService, private router: Router, private _location: Location, public nav: NavbarService) { }
+  constructor(private formBuilder: FormBuilder, private cadastroVaga: CadastroVagasService, private router: Router, private _location: Location, public nav: NavbarService, private userService:UserService, private empresaService: EmpresaService, private alertService: AlertModalService)
+  {
+
+  }
 
   ngOnInit(): void {
+
+    this.idUser = this.userService.getId()
+
+    this.empresaService.consultarPorId(this.idUser).subscribe(data => {
+     this.idEmpresa = data['idEmpresa']
+     this.buildForm();
+   })
+
+  }
+
+  buildForm() {
     this.novaVagaForm = this.formBuilder.group({
-      empresa: [2],
+      empresa: [this.idEmpresa],
       cargo: ['', [Validators.required]],
       descricao: ['', [Validators.required]],
       salario: [],
@@ -27,13 +47,19 @@ export class CadastroVagasComponent implements OnInit {
       modalidade: ['', [Validators.required]],
       prazo: ['', [Validators.required]]
     })
+    this.isDone=true;
   }
 
   cadastrar(){
 
       const novaVaga = this.novaVagaForm.getRawValue() as CadastroVagas
 
-      this.cadastroVaga.cadastrarNovaVaga(novaVaga).subscribe(()=>{this.router.navigate([''])}, (error)=> alert('Erro'))
+      this.cadastroVaga.cadastrarNovaVaga(novaVaga).subscribe(()=>{
+        this.alertService.showAlertSuccess('Vaga cadastrada com sucesso!')
+        setTimeout(() => {
+          this.router.navigate(['/vagas']);
+        }, 3000);
+    }, (error)=> this.alertService.showAlertDanger('Não foi possível criar a vaga.Tente Novamente'))
   }
 
   voltar() {

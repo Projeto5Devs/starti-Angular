@@ -34,10 +34,6 @@ export class PerfilComponent implements OnInit {
       this.idCandidato = data['idPessoaFisica']
       this.inscricao.buscarPorCandidato(this.idCandidato).subscribe(data => this.vagas = data)
     })
-
-
-
-
    }
 
   ngOnInit(): void {

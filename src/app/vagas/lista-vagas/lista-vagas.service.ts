@@ -31,4 +31,7 @@ export class ListaVagasService {
     return this.http.get(`http://localhost:8080/vaga/v1/buscarPorCargo/${cargo}`)
   }
 
+  buscarPorEmpresa(empresa:number) : Observable<any>{
+    return this.http.get(`http://localhost:8080/vaga/v1/buscarPorEmpresa/${empresa}`)
+  }
 }
