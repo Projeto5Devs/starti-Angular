@@ -18,19 +18,28 @@ export class EditarPerfilComponent implements OnInit {
 
   id: number;
   idPessoaFisica: number;
+  isDone: boolean
 
   constructor(private formBuilder: FormBuilder, private _cepService: CepService, private http: HttpClient, private _location: Location, public nav: NavbarService, private candidato: CandidatoService, private candidatoService: CandidatoService, private userService: UserService) {
-    this.id = userService.getId();
+   }
+
+   ngOnInit(): void {
+
+    this.nav.hide();
+
+    this.id = this.userService.getId();
 
     this.candidatoService.consultarPorId(this.id).subscribe((data) => {
       this.idPessoaFisica = data['idPessoaFisica']
+      this.buildForm();
     })
-   }
+  }
 
   onEdit() {
     console.log('Editando')
     console.log(this.idPessoaFisica)
     this.candidatoService.editarCandidato(this.formulario.value).subscribe(response => console.log(response));
+    window.location.href="http://localhost:4200/candidato";
   }
 
   onDelete() {
@@ -41,10 +50,7 @@ export class EditarPerfilComponent implements OnInit {
     this.userService.logout();
   }
 
-  ngOnInit(): void {
-
-    this.nav.hide();
-
+  buildForm() {
     this.formulario = this.formBuilder.group({
       key: [this.idPessoaFisica],
       nome: [null, Validators.required],
@@ -69,9 +75,9 @@ export class EditarPerfilComponent implements OnInit {
         username: [null, Validators.required],
         password: [null, Validators.required],
       })
-    });
+    })
+    this.isDone = true;
   }
-
 
   buscarCEP() {
     let cep = this.formulario.get('endereco.cep').value
