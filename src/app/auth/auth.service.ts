@@ -4,6 +4,7 @@ import { UserService } from './../user/user.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavbarService } from '../template/navbar/navbar.service';
+import { AlertModalService } from '../componentes/alert-modal.service';
 
 
 
@@ -12,7 +13,7 @@ import { NavbarService } from '../template/navbar/navbar.service';
 })
 export class LoginService {
 
-  constructor(private httpClient : HttpClient, private userService: UserService, private router: Router, private nav: NavbarService) {
+  constructor(private httpClient : HttpClient, private userService: UserService, private router: Router, private nav: NavbarService, private alertService: AlertModalService) {
   }
 
   login(usuario:string, senha:string) {
@@ -27,9 +28,9 @@ export class LoginService {
     },
       (error) => {
         console.error("Usuário ou senha inválido")
+        this.alertService.showAlertDanger('Usuário ou Senha inválido.')
       }
     )
   }
-
 
 }

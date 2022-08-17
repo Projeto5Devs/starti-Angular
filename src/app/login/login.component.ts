@@ -1,6 +1,4 @@
 import { NavbarService } from './../template/navbar/navbar.service';
-
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../auth/auth.service';
@@ -29,5 +27,6 @@ export class LoginComponent implements OnInit {
   voltar() {
     this._location.back();
   }
+
 
 }
