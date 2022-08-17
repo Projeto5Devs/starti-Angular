@@ -15,21 +15,20 @@ import { UserService } from 'src/app/user/user.service';
 export class EditarPerfilComponent implements OnInit {
 
   formulario: FormGroup;
-
+  candidatos: any;
   id: number;
   idPessoaFisica: number;
-  isDone: boolean
+  isDone: boolean;
 
-  constructor(private formBuilder: FormBuilder, private _cepService: CepService, private http: HttpClient, private _location: Location, public nav: NavbarService, private candidato: CandidatoService, private candidatoService: CandidatoService, private userService: UserService) {
-   }
+  constructor(private formBuilder: FormBuilder, private _cepService: CepService, private http: HttpClient, private _location: Location, public nav: NavbarService, private candidato: CandidatoService, private candidatoService: CandidatoService, private userService: UserService) { }
 
    ngOnInit(): void {
-
     this.nav.hide();
 
     this.id = this.userService.getId();
 
     this.candidatoService.consultarPorId(this.id).subscribe((data) => {
+      this.candidatos = data
       this.idPessoaFisica = data['idPessoaFisica']
       this.buildForm();
     })
@@ -53,26 +52,26 @@ export class EditarPerfilComponent implements OnInit {
   buildForm() {
     this.formulario = this.formBuilder.group({
       key: [this.idPessoaFisica],
-      nome: [null, Validators.required],
-      sobrenome: [null, Validators.required],
-      dataDeNascimento: [null, Validators.required],
-      cpf: [null, Validators.required],
+      nome: [this.candidatos.nome, Validators.required],
+      sobrenome: [this.candidatos.sobrenome, Validators.required],
+      dataDeNascimento: [this.candidatos.dataDeNascimento, Validators.required],
+      cpf: [this.candidatos.cpf, Validators.required],
       contato: this.formBuilder.group({
-        email: [null, [Validators.required, Validators.email]],
-        telefone: [null, Validators.required],
+        email: [this.candidatos.contato.email, [Validators.required, Validators.email]],
+        telefone: [this.candidatos.contato.telefone, Validators.required],
         website: [null]
       }),
       endereco: this.formBuilder.group({
-        cep: [null, Validators.required],
-        cidade: [null, Validators.required],
-        uf: [null, Validators.required],
-        bairro: [null, Validators.required],
-        rua: [null, Validators.required],
-        numero: [null, Validators.required],
-        complemento: [null, Validators.required]
+        cep: [this.candidatos.endereco.cep, Validators.required],
+        cidade: [this.candidatos.endereco.cidade, Validators.required],
+        uf: [this.candidatos.endereco.uf, Validators.required],
+        bairro: [this.candidatos.endereco.bairro, Validators.required],
+        rua: [this.candidatos.endereco.rua, Validators.required],
+        numero: [this.candidatos.endereco.numero, Validators.required],
+        complemento: [this.candidatos.endereco.complemento, Validators.required]
       }),
       userId: this.formBuilder.group({
-        username: [null, Validators.required],
+        username: [this.candidatos.userId.username, Validators.required],
         password: [null, Validators.required],
       })
     })
