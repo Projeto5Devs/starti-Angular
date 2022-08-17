@@ -59,7 +59,7 @@ export class EditarPerfilComponent implements OnInit {
       contato: this.formBuilder.group({
         email: [this.candidatos.contato.email, [Validators.required, Validators.email]],
         telefone: [this.candidatos.contato.telefone, Validators.required],
-        website: [null]
+        website: [this.candidatos.contato.website]
       }),
       endereco: this.formBuilder.group({
         cep: [this.candidatos.endereco.cep, Validators.required],
