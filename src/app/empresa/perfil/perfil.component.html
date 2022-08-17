@@ -57,7 +57,8 @@
             <div class="d-flex gap-2 w-100 justify-content-between">
               <div>
                 <h5 class="mb-1">Cargo: {{ vagas[i].cargo }}</h5>
-                <h6>{{ vagas[i].modalidade }}</h6>
+                <h6>{{ vagas[i].modalidade }} <> {{ vagas[i].tipo }}</h6>
+
                 <p class="mb-2 opacity-75">{{ vagas[i].descricao }}</p>
                 <p>
                   <small style="color: red"
@@ -65,6 +66,9 @@
                     {{ vagas[i].prazo | date: "dd/MM/yyyy" }}</small
                   >
                 </p>
+                <button (click)="editar(vagas[i].id)" id="btn">
+                  Editar Vaga
+                </button>
                 <button id="btn" (click)="remover(vagas[i].id)">
                   Remover Vaga
                 </button>
@@ -76,3 +80,17 @@
     </form>
   </div>
 </div>
+
+<ng-template #deletarModal>
+  <div class="modal-body text-center">
+    <p>Deseja remover a vaga?</p>
+    <button
+      type=" button"
+      class="btn btn-default mx-3"
+      (click)="onConfirmDelete()"
+    >
+      Sim
+    </button>
+    <button type="button" id="btn" (click)="onDeclineDelete()">Não</button>
+  </div>
+</ng-template>

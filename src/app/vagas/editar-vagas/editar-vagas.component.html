@@ -1,1 +1,105 @@
-<p>editar-vagas works!</p>
+<div class="px-4 py-5 mt-5 text-center">
+  <i class="fa-solid fa-pen-to-square fa-2x"></i>
+  <h1 class="display-5 fw-bold">Editar Vaga</h1>
+</div>
+
+<div class="row d-flex justify-content-center align-items-center mb-5">
+  <form
+    class="col-lg-6 formulario form form-control-lg "
+    [(formGroup)]="editarForm "
+    *ngIf="isDone"
+    (submit)="editar()"
+  >
+    <label for="cargo" class="mb-2">Cargo </label>
+    <input
+      type="text"
+      id="cargo"
+      class="form-control"
+      formControlName="cargo"
+      placeholder="ex: Desenvolvedor Full Stack Java"
+    />
+
+    <label for="descricao" class="mb-2 mt-2">Descrição da Vaga </label>
+    <textarea
+      class="form-control"
+      id="descricao"
+      formControlName="descricao"
+      rows="3"
+    ></textarea>
+    <app-mensagem
+    *ngIf="
+      editarForm.get('descricao')?.errors?.required &&
+      editarForm.get('descricao')?.touched
+    "
+    mensagem="Campo Obrigatório"
+  ></app-mensagem>
+    <fieldset>
+      <legend class="col-form-label">Tipo</legend>
+      <div class="form-check">
+        <input
+          type="radio"
+          class="form-check-input"
+          name="tipo"
+          id="radioEstagio"
+          value="Estágio"
+          formControlName="tipo"
+
+        />
+        <label for="radioEstagio">Estágio</label>
+      </div>
+      <div class="form-check">
+        <input
+          type="radio"
+          class="form-check-input"
+          name="tipo"
+          id="radioJunior"
+          formControlName="tipo"
+          value="Júnior"
+      
+        />
+        <label for="radioJunior">Júnior</label>
+      </div>
+    </fieldset>
+    <select
+      formControlName="modalidade"
+      name=""
+      id=""
+      class="form-select mb-2 mt-3"
+    >
+      <option value="Home-Office">Home-Office</option>
+      <option value="Híbrido">Híbrido</option>
+      <option value="Presencial">Presencial</option>
+    </select>
+    <label for="salario" class="mb-2 mt-2">Salário</label>
+    <div class="input-group">
+      <div class="input-group-text">$</div>
+      <input
+        type="number"
+        formControlName="salario"
+        class="form-control"
+        name=""
+        id="salario"
+      />
+    </div>
+    <label for="prazo" class="mb-2 mt-3">Validade da Vaga</label>
+    <input
+      type="date"
+      formControlName="prazo"
+      name=""
+      id="prazo"
+      class="form-control"
+    />
+
+    <div class="mt-4 mb-4 d-flex justify-content-end">
+      <button (click)="empresa()" class="button cancel">Cancelar</button>
+      <button type="submit" class="button confirmar">Editar</button>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="javascript:void(0)" (click)="voltar()">
+        <i class="fa-solid fa-circle-left"></i>
+        Voltar
+      </a>
+    </div>
+  </form>
+</div>

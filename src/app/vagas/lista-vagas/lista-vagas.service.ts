@@ -34,4 +34,13 @@ export class ListaVagasService {
   buscarPorEmpresa(empresa:number) : Observable<any>{
     return this.http.get(`http://localhost:8080/vaga/v1/buscarPorEmpresa/${empresa}`)
   }
+
+  buscarPorId(id:number) : Observable<any>{
+    return this.http.get(`http://localhost:8080/vaga/v1/${id}`)
+  }
+
+  deletarVaga(id:number){
+    return this.http.delete(`http://localhost:8080/vaga/v1/${id}`);
+  }
+
 }

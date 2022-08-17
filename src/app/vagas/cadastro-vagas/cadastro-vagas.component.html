@@ -1,12 +1,13 @@
 <div class="px-4 py-5 mt-5 text-center">
-  <i class="fa fa-briefcase fa-4x" aria-hidden="true"></i>
+  <i class="fa-solid fa-circle-plus fa-2x"></i>
   <h1 class="display-5 fw-bold">Cadastro de vagas</h1>
 </div>
 
 <div class="row d-flex justify-content-center align-items-center mb-5">
   <form
-    class="col-lg-6 formulario form form-control-lg "
-    [(formGroup)]="novaVagaForm" *ngIf="isDone"
+    class="col-lg-6 formulario form form-control-lg"
+    [(formGroup)]="novaVagaForm"
+    *ngIf="isDone"
     (submit)="cadastrar()"
   >
     <label for="cargo" class="mb-2">Cargo </label>
@@ -46,7 +47,7 @@
           class="form-check-input"
           name="tipo"
           id="radioEstagio"
-          value="Estagio"
+          value="Estágio"
           formControlName="tipo"
         />
         <label for="radioEstagio">Estágio</label>
@@ -69,7 +70,6 @@
       id=""
       class="form-select mb-2 mt-3"
     >
-      <option selected>Modalidade</option>
       <option value="Remoto">Remoto</option>
       <option value="Híbrido">Híbrido</option>
       <option value="Presencial">Presencial</option>
@@ -101,7 +101,7 @@
       mensagem="Campo Obrigatório"
     ></app-mensagem>
     <div class="mt-4 mb-4 d-flex justify-content-end">
-      <button type="reset" class="button cancel">Cancelar</button>
+      <button (click)="voltar()" class="button cancel">Cancelar</button>
       <button type="submit" class="button confirmar">Cadastrar</button>
     </div>
 

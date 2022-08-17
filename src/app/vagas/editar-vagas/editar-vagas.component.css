@@ -1,0 +1,48 @@
+*{
+  margin: 0;
+}
+
+form {
+  margin-top: 5px;
+  margin-left:15%;
+  margin-right:15%;
+}
+
+.button{
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+.cancel{
+  background-color:  #fff;
+  border: 1px solid rgb(174, 174, 174);
+  margin-right: 10px;
+}
+
+.cancel:hover{
+  color:gray
+}
+
+.confirmar{
+  background-color:  #631ddc !important;
+  color: #fff;
+}
+
+.confirmar:hover{
+    transition: 0.5s;
+    background-color:  #6e1df9 !important;
+}
+
+
+@media (min-width: 992px) {
+  .rounded-lg-3 { border-radius: .3rem; }
+}
+
+
+input, label {
+  font-family: "Poppins", sans-serif;
+}
+
+
+

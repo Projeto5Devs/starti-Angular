@@ -22,4 +22,10 @@ export class CadastroVagasService {
     }
     return this.http.post<any>('http://localhost:8080/vaga/v1',novaVaga, httpOptions);
   }
+
+
+  editarVaga(vaga: CadastroVagas){
+
+    return this.http.put<any>('http://localhost:8080/vaga/v1',vaga);
+  }
 }

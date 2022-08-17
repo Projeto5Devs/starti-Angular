@@ -31,6 +31,7 @@ export class CadastroVagasComponent implements OnInit {
     this.idUser = this.userService.getId()
 
     this.empresaService.consultarPorId(this.idUser).subscribe(data => {
+      console.log(data)
      this.idEmpresa = data['idEmpresa']
      this.buildForm();
    })
@@ -57,7 +58,7 @@ export class CadastroVagasComponent implements OnInit {
       this.cadastroVaga.cadastrarNovaVaga(novaVaga).subscribe(()=>{
         this.alertService.showAlertSuccess('Vaga cadastrada com sucesso!')
         setTimeout(() => {
-          this.router.navigate(['/vagas']);
+          this.router.navigate(['/empresa']);
         }, 3000);
     }, (error)=> this.alertService.showAlertDanger('Não foi possível criar a vaga.Tente Novamente'))
   }
@@ -66,4 +67,5 @@ export class CadastroVagasComponent implements OnInit {
     this._location.back();
     this.nav.show()
   }
+
 }

@@ -1,5 +1,6 @@
 export interface CadastroVagas {
-  empresa:number
+  key:number
+  empresa:any
   descricao: string;
 	salario: number
 	modalidade: string;
