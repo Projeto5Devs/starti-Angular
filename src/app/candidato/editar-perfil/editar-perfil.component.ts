@@ -75,6 +75,7 @@ export class EditarPerfilComponent implements OnInit {
         password: [null, Validators.required],
       })
     })
+    this.formulario.get("dataDeNascimento").setValue(new Date(this.candidatos.dataDeNascimento).toISOString().split('T')[0])
     this.isDone = true;
   }
 
